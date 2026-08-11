@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register Team | CodeForge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;1,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-container">
+      <div class="header-left">
+        <div class="institute-logo-placeholder">
+          <img id="header-college-logo" src="" alt="" style="display: none;">
+          <img class="header-logo-anvil" id="logo-icon-fallback" src="img/anvil_logo.png" alt="Anvil Logo">
+        </div>
+        <div class="header-branding">
+          <h1 class="logo-wordmark"><a href="index.html" style="border:none;">Code<span class="logo-accent">Forge</span></a></h1>
+          <div class="institute-name">Baba Saheb Naik College of Engineering, Pusad</div>
+        </div>
+      </div>
+      <div class="header-right">
+        <div id="user-profile-menu" class="profile-menu" style="display: none;">
+          <div class="profile-badge" id="profile-badge-text">U</div>
+          <span class="profile-email" id="profile-email-text">user@email.com</span>
+          <button class="btn btn-ghost btn-sm" id="btn-logout">
+            <i data-lucide="log-out"></i>
+            <span>Logout</span>
+            <span class="btn-underline"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+      <section id="view-register" class="app-view active">
+        <!-- Progress Stepper Tracker Header -->
+        <div class="stepper-header-row mb-32">
+          <h2 class="dashboard-title text-uppercase tracking-tighter">Team Builder</h2>
+          
+          <div class="stepper-tracker">
+            <div class="step" id="step-node-1">
+              <span class="step-num font-mono">1</span>
+              <span class="step-text">Establish</span>
+            </div>
+            <div class="step-divider"></div>
+            <div class="step" id="step-node-2">
+              <span class="step-num font-mono">2</span>
+              <span class="step-text">Members</span>
+            </div>
+            <div class="step-divider"></div>
+            <div class="step" id="step-node-3">
+              <span class="step-num font-mono">3</span>
+              <span class="step-text">Review</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 1. STEP 1: TEAM NAME -->
+        <div class="step-content" id="step-pane-1">
+          <div class="card max-w-640 mx-auto header-glow-card">
+            <div class="card-body">
+              <h3 class="card-title text-uppercase mb-16"><i data-lucide="rocket"></i> Step 1: Establish Team Identity</h3>
+              <p class="card-desc mb-24">Pick a distinct and memorable name for your hackathon crew. This name will appear on leaderboards and digital certificates.</p>
+              
+              <div class="error-region" id="reg-team-name-error" style="display: none;"></div>
+              
+              <div class="form-group max-w-480">
+                <label for="reg-team-name">Team Name</label>
+                <input type="text" id="reg-team-name" placeholder="e.g. PixelPioneers" required autocomplete="off">
+                <div id="reg-team-name-feedback" class="mt-8 font-mono" style="display: none; font-size: 12px;"></div>
+              </div>
+
+              <!-- Quick Info Summary Box -->
+              <div class="card mt-24" style="background: var(--input); border: 1px solid var(--border);">
+                <div class="card-body" style="padding: 16px 20px;">
+                  <h5 style="font-size: 12px; font-weight: 700; text-transform: uppercase; color: var(--foreground); display: flex; align-items: center; gap: 6px; margin-bottom: 12px;">
+                    <i data-lucide="info" class="w-14" style="color: var(--accent);"></i> Registration Quick Guide
+                  </h5>
+                  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; font-size: 12px;">
+                    <div style="background: var(--card); padding: 10px 12px; border-radius: 6px; border: 1px solid var(--border);">
+                      <span style="color: var(--muted-foreground); display: block; font-size: 10px; font-weight: 600; text-transform: uppercase;">Team Size</span>
+                      <strong style="color: var(--foreground); font-size: 13px;">Exactly 4 Members</strong>
+                    </div>
+                    <div style="background: var(--card); padding: 10px 12px; border-radius: 6px; border: 1px solid var(--border);">
+                      <span style="color: var(--muted-foreground); display: block; font-size: 10px; font-weight: 600; text-transform: uppercase;">Registration Fee</span>
+                      <strong style="color: var(--accent); font-size: 13px;" id="reg-guide-fee">₹500 / Team</strong>
+                    </div>
+                    <div style="background: var(--card); padding: 10px 12px; border-radius: 6px; border: 1px solid var(--border);">
+                      <span style="color: var(--muted-foreground); display: block; font-size: 10px; font-weight: 600; text-transform: uppercase;">Venue Pass</span>
+                      <strong style="color: var(--foreground); font-size: 13px;">QR Entry Pass</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="btn-group mt-32">
+                <button type="button" class="btn btn-secondary" id="btn-step-1-cancel">Cancel</button>
+                <button type="button" class="btn btn-primary" id="btn-step-1-next">
+                  Proceed to Members <i data-lucide="users" class="w-14"></i>
+                  <span class="btn-underline"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. STEP 2: MEMBERS DETAIL FORM -->
+        <div class="step-content" id="step-pane-2">
+          <div class="justify-between align-center mb-24" style="display: flex; flex-wrap: wrap; gap: 12px;">
+            <div>
+              <h3 class="step-title-header text-uppercase font-space">Step 2: Add Team Members</h3>
+              <p class="step-subtitle-header">Every team must register exactly 4 members. Pick one leader.</p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <button type="button" class="btn btn-secondary btn-sm" id="btn-apply-college-all" title="Copy College, Branch, Section and Year from Leader to all members">
+                <i data-lucide="copy" class="w-12"></i> <span>Copy Leader's College to All</span> <span class="btn-underline"></span>
+              </button>
+              <button type="button" class="btn btn-secondary btn-sm" id="btn-expand-all-members">Collapse All <span class="btn-underline"></span></button>
+            </div>
+          </div>
+
+          <div class="error-region mb-24" id="reg-step-2-error" style="display: none;"></div>
+
+          <div class="members-cards-container">
+            <!-- 4 Member Cards loop -->
+            <div class="card member-form-card mb-16 active-seam" id="member-card-0">
+              <div class="member-card-header">
+                <h4 class="member-title">Member 1 <span class="leader-badge-indicator ml-8">★ Team Leader</span></h4>
+                <div class="member-header-actions">
+                  <span class="member-status-chip incomplete" id="member-status-chip-0"><i data-lucide="circle-dot" class="w-10"></i> Incomplete</span>
+                  <div class="leader-select-container">
+                    <label class="leader-radio-label">
+                      <input type="radio" name="leader-select" value="0" class="leader-radio-input" checked>
+                      <span class="custom-radio"></span>
+                      <span class="radio-label-text">Team Leader</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="member-card-body">
+                <div class="member-card-body-grid">
+                  <!-- Photo upload section -->
+                  <div class="member-photo-section">
+                    <span class="screenshot-label">Profile Photo</span>
+                    <div class="member-photo-frame">
+                      <input type="file" class="member-photo-input" data-idx="0" accept="image/*" id="member-photo-input-0">
+                      <div class="member-photo-prompt" id="member-photo-prompt-0">
+                        <i data-lucide="camera"></i>
+                        <p>Upload Photo</p>
+                      </div>
+                      <img src="" class="member-photo-img" id="member-photo-preview-0" style="display: none;">
+                    </div>
+                    <button type="button" class="btn-clear-photo btn btn-ghost btn-xs mt-4" id="btn-clear-photo-0" style="display: none;"><i data-lucide="x" class="w-10"></i> Remove</button>
+                    <div class="field-error" id="member-photo-error-0" style="margin-top: 4px;"></div>
+                  </div>
+
+                  <!-- Details section -->
+                  <div style="display: flex; flex-direction: column; gap: 24px; width: 100%;">
+                    <div class="sub-form-section">
+                      <h5 class="sub-section-title"><i data-lucide="user"></i> Personal Details</h5>
+                      <div class="form-row-3">
+                        <div class="form-group">
+                          <label>Full Name</label>
+                          <input type="text" class="member-input" data-field="full_name" placeholder="John Doe" required>
+                          <div class="field-error"></div>
+                        </div>
+                        <div class="form-group">
+                          <label>Age</label>
+                          <input type="number" class="member-input" data-field="age" placeholder="20" required min="10" max="100">
+                          <div class="field-error"></div>
+                        </div>
+                        <div class="form-group">
+                          <label>Gender</label>
+                          <select class="member-input" data-field="gender" required>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                          </select>
+                          <div class="field-error"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="sub-form-section">
+                      <h5 class="sub-section-title"><i data-lucide="book-open"></i> Academic Info</h5>
+                      <div class="form-row-4">
+                        <div class="form-group">
+                          <label>College Name</label>
+                          <input type="text" class="member-input" data-field="college" placeholder="BNCOE, Pusad" required>
+                          <div class="field-error"></div>
+                        </div>
+                        <div class="form-group">
+                          <label>Branch</label>
+                          <input type="text" class="member-input" data-field="branch" placeholder="CSE" required>
+                          <div class="field-error"></div>
+                        </div>
+                        <div class="form-group">
+                          <label>Section</label>
+                          <input type="text" class="member-input" data-field="section" placeholder="A" required>
+                          <div class="field-error"></div>
+                        </div>
+                        <div class="form-group">
+                          <label>Academic Year</label>
+                          <select class="member-input" data-field="year" required>
+                            <option value="1">1st Year</option>
+                            <option value="2">2nd Year</option>
+                            <option value="3">3rd Year</option>
+                            <option value="4">4th Year</option>
+                            <option value="5">5th Year</option>
+                          </select>
+                          <div class="field-error"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="sub-form-section">
+                      <h5 class="sub-section-title"><i data-lucide="phone"></i> Contact Details</h5>
+                      <div class="form-row-2">
+                        <div class="form-group">
+                          <label>Mobile Number</label>
+                          <input type="tel" class="member-input" data-field="mobile" placeholder="10-digit number" maxlength="10" required>
+                          <div class="field-error"></div>
+                        </div>
+                        <div class="form-group">
+                          <label>Email Address</label>
+                          <input type="email" class="member-input" data-field="email" placeholder="leader@domain.com" required>
+                          <div class="field-error"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card member-form-card mb-16" id="member-card-1">
+              <div class="member-card-header">
+                <h4 class="member-title">Member 2</h4>
+                <div class="member-header-actions">
+                  <span class="member-status-chip incomplete" id="member-status-chip-1"><i data-lucide="circle-dot" class="w-10"></i> Incomplete</span>
+                  <div class="leader-select-container">
+                    <label class="leader-radio-label">
+                      <input type="radio" name="leader-select" value="1" class="leader-radio-input">
+                      <span class="custom-radio"></span>
+                      <span class="radio-label-text">Team Leader</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="member-card-body">
+                <div class="member-card-body-grid">
+                  <!-- Photo upload section -->
+                  <div class="member-photo-section">
+                    <span class="screenshot-label">Profile Photo</span>
+                    <div class="member-photo-frame">
+                      <input type="file" class="member-photo-input" data-idx="1" accept="image/*" id="member-photo-input-1">
+                      <div class="member-photo-prompt" id="member-photo-prompt-1">
+                        <i data-lucide="camera"></i>
+                        <p>Upload Photo</p>
+                      </div>
+                      <img src="" class="member-photo-img" id="member-photo-preview-1" style="display: none;">
+                    </div>
+                    <button type="button" class="btn-clear-photo btn btn-ghost btn-xs mt-4" id="btn-clear-photo-1" style="display: none;"><i data-lucide="x" class="w-10"></i> Remove</button>
+                    <div class="field-error" id="member-photo-error-1" style="margin-top: 4px;"></div>
+                  </div>
+
+                  <!-- Details section -->
+                  <div style="display: flex; flex-direction: column; gap: 24px; width: 100%;">
+                    <div class="sub-form-section">
+                      <h5 class="sub-section-title"><i data-lucide="user"></i> Personal Details</h5>
+                      <div class="form-row-3">
+                        <div class="form-group">
+                          <label>Full Name</label>
+                          <input type="text" class="member-input" data-field="full_name" placeholder="Jane Smith" required>
+                          <div class="field-error"></div>
+                        </div>
+                        <div class="form-group">
+                          <label>Age</label>
+                          <input type="number" class="member-input" data-field="age" placeholder="21" required min="10" max="100">
+                          <div class="field-error"></div>
+                        </div>
+                        <div class="form-group">
+                          <label>Gender</label>
+                          <select class="member-input" data-field="gender" required>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                          </select>
+                          <div class="field-error"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="sub-form-section">
+                      <h5 class="sub-section-title"><i data-lucide="book-open"></i> Academic Info</h5>
+                      <div class="form-row-4">
+                        <div class="form-group">
+                          <label>College Name</label>
+                          <input type="text" class="member-input" data-field="college" placeholder="BNCOE, Pusad" required>
+                          <div class="field-error"></div>
+                        </div>
+                        <div class="form-group">
+                          <label>Branch</label>
+                          <input type="text" class="member-input" data-field="branch" placeholder="CSE" required>
+                          <div class="field-error"></div>
+                        </div>
+                        <div class="form-group">
+                          <label>Section</label>
+                          <input type="text" class="member-input" data-field="section" placeholder="A" required>
+                          <div class="field-error"></div>
+                        </div>
+                        <div class="form-group">
+                          <label>Academic Year</label>
+                          <select class="member-input" data-field="year" required>
+                            <option value="1">1st Year</option>
+                            <option value="2">2nd Year</option>
+                            <option value="3">3rd Year</option>
+                            <option value="4">4th Year</option>
+                            <option value="5">5th Year</option>
+                          </select>
+                          <div class="field-error"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="sub-form-section">
+                      <h5 class="sub-section-title"><i data-lucide="phone"></i> Contact Details</h5>
+                      <div class="form-row-2">
+                        <div class="form-group">
+                          <label>Mobile Number</label>
+                          <input type="tel" class="member-input" data-field="mobile" placeholder="10-digit number" maxlength="10" required>
+                          <div class="field-error"></div>
+                        </div>
+                        <div class="form-group">
+                          <label>Email Address</label>
+                          <input type="email" class="member-input" data-field="email" placeholder="m2@domain.com" required>
+                          <div class="field-error"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card member-form-card mb-16" id="member-card-2">
+              <div class="member-card-header">
+                <h4 class="member-title">Member 3</h4>
+                <div class="member-header-actions">
+                  <span class="member-status-chip incomplete" id="member-status-chip-2"><i data-lucide="circle-dot" class="w-10"></i> Incomplete</span>
+                  <div class="leader-select-container">
+                    <label class="leader-radio-label">
+                      <input type="radio" name="leader-select" value="2" class="leader-radio-input">
+                      <span class="custom-radio"></span>
+                      <span class="radio-label-text">Team Leader</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="member-card-body">
+                <div class="member-card-body-grid">
+                  <!-- Photo upload section -->
+                  <div class="member-photo-section">
+                    <span class="screenshot-label">Profile Photo</span>
+                    <div class="member-photo-frame">
+                      <input type="file" class="member-photo-input" data-idx="2" accept="image/*" id="member-photo-input-2">
+                      <div class="member-photo-prompt" id="member-photo-prompt-2">
+                        <i data-lucide="camera"></i>
+                        <p>Upload Photo</p>
+                      </div>
+                      <img src="" class="member-photo-img" id="member-photo-preview-2" style="display: none;">
+                    </div>
+                    <button type="button" class="btn-clear-photo btn btn-ghost btn-xs mt-4" id="btn-clear-photo-2" style="display: none;"><i data-lucide="x" class="w-10"></i> Remove</button>
+                    <div class="field-error" id="member-photo-error-2" style="margin-top: 4px;"></div>
+                  </div>
+
+                  <!-- Details section -->
+                  <div style="display: flex; flex-direction: column; gap: 24px; width: 100%;">
+                    <div class="sub-form-section">
+                      <h5 class="sub-section-title"><i data-lucide="user"></i> Personal Details</h5>
+                      <div class="form-row-3">
+                        <div class="form-group">
+                          <label>Full Name</label>
+                          <input type="text" class="member-input" data-field="full_name" placeholder="Bob Johnson" required>
+                          <div class="field-error"></div>
+                        </div>
+                        <div class="form-group">
+                          <label>Age</label>
+                          <input type="number" class="member-input" data-field="age" placeholder="20" required min="10" max="100">
+                          <div class="field-error"></div>
+                        </div>
+                        <div class="form-group">
+                          <label>Gender</label>
+                          <select class="member-input" data-field="gender" required>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                          </select>
+                          <div class="field-error"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="sub-form-section">
+                      <h5 class="sub-section-title"><i data-lucide="book-open"></i> Academic Info</h5>
+                      <div class="form-row-4">
+                        <div class="form-group">
+                          <label>College Name</label>
+                          <input type="text" class="member-input" data-field="college" placeholder="BNCOE, Pusad" required>
+                          <div class="field-error"></div>
+                        </div>
+                        <div class="form-group">
+                          <label>Branch</label>
+                          <input type="text" class="member-input" data-field="branch" placeholder="CSE" required>
+                          <div class="field-error"></div>
+                        </div>
+                        <div class="form-group">
+                          <label>Section</label>
+                          <input type="text" class="member-input" data-field="section" placeholder="A" required>
+                          <div class="field-error"></div>
+                        </div>
+                        <div class="form-group">
+                          <label>Academic Year</label>
+                          <select class="member-input" data-field="year" required>
+                            <option value="1">1st Year</option>
+                            <option value="2">2nd Year</option>
+                            <option value="3">3rd Year</option>
+                            <option value="4">4th Year</option>
+                            <option value="5">5th Year</option>
+                          </select>
+                          <div class="field-error"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="sub-form-section">
+                      <h5 class="sub-section-title"><i data-lucide="phone"></i> Contact Details</h5>
+                      <div class="form-row-2">
+                        <div class="form-group">
+                          <label>Mobile Number</label>
+                          <input type="tel" class="member-input" data-field="mobile" placeholder="10-digit number" maxlength="10" required>
+                          <div class="field-error"></div>
+                        </div>
+                        <div class="form-group">
+                          <label>Email Address</label>
+                          <input type="email" class="member-input" data-field="email" placeholder="m3@domain.com" required>
+                          <div class="field-error"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card member-form-card mb-16" id="member-card-3">
+              <div class="member-card-header">
+                <h4 class="member-title">Member 4</h4>
+                <div class="member-header-actions">
+                  <span class="member-status-chip incomplete" id="member-status-chip-3"><i data-lucide="circle-dot" class="w-10"></i> Incomplete</span>
+                  <div class="leader-select-container">
+                    <label class="leader-radio-label">
+                      <input type="radio" name="leader-select" value="3" class="leader-radio-input">
+                      <span class="custom-radio"></span>
+                      <span class="radio-label-text">Team Leader</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="member-card-body">
+                <div class="member-card-body-grid">
+                  <!-- Photo upload section -->
+                  <div class="member-photo-section">
+                    <span class="screenshot-label">Profile Photo</span>
+                    <div class="member-photo-frame">
+                      <input type="file" class="member-photo-input" data-idx="3" accept="image/*" id="member-photo-input-3">
+                      <div class="member-photo-prompt" id="member-photo-prompt-3">
+                        <i data-lucide="camera"></i>
+                        <p>Upload Photo</p>
+                      </div>
+                      <img src="" class="member-photo-img" id="member-photo-preview-3" style="display: none;">
+                    </div>
+                    <button type="button" class="btn-clear-photo btn btn-ghost btn-xs mt-4" id="btn-clear-photo-3" style="display: none;"><i data-lucide="x" class="w-10"></i> Remove</button>
+                    <div class="field-error" id="member-photo-error-3" style="margin-top: 4px;"></div>
+                  </div>
+
+                  <!-- Details section -->
+                  <div style="display: flex; flex-direction: column; gap: 24px; width: 100%;">
+                    <div class="sub-form-section">
+                      <h5 class="sub-section-title"><i data-lucide="user"></i> Personal Details</h5>
+                      <div class="form-row-3">
+                        <div class="form-group">
+                          <label>Full Name</label>
+                          <input type="text" class="member-input" data-field="full_name" placeholder="Alice Miller" required>
+                          <div class="field-error"></div>
+                        </div>
+                        <div class="form-group">
+                          <label>Age</label>
+                          <input type="number" class="member-input" data-field="age" placeholder="20" required min="10" max="100">
+                          <div class="field-error"></div>
+                        </div>
+                        <div class="form-group">
+                          <label>Gender</label>
+                          <select class="member-input" data-field="gender" required>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                          </select>
+                          <div class="field-error"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="sub-form-section">
+                      <h5 class="sub-section-title"><i data-lucide="book-open"></i> Academic Info</h5>
+                      <div class="form-row-4">
+                        <div class="form-group">
+                          <label>College Name</label>
+                          <input type="text" class="member-input" data-field="college" placeholder="BNCOE, Pusad" required>
+                          <div class="field-error"></div>
+                        </div>
+                        <div class="form-group">
+                          <label>Branch</label>
+                          <input type="text" class="member-input" data-field="branch" placeholder="CSE" required>
+                          <div class="field-error"></div>
+                        </div>
+                        <div class="form-group">
+                          <label>Section</label>
+                          <input type="text" class="member-input" data-field="section" placeholder="A" required>
+                          <div class="field-error"></div>
+                        </div>
+                        <div class="form-group">
+                          <label>Academic Year</label>
+                          <select class="member-input" data-field="year" required>
+                            <option value="1">1st Year</option>
+                            <option value="2">2nd Year</option>
+                            <option value="3">3rd Year</option>
+                            <option value="4">4th Year</option>
+                            <option value="5">5th Year</option>
+                          </select>
+                          <div class="field-error"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="sub-form-section">
+                      <h5 class="sub-section-title"><i data-lucide="phone"></i> Contact Details</h5>
+                      <div class="form-row-2">
+                        <div class="form-group">
+                          <label>Mobile Number</label>
+                          <input type="tel" class="member-input" data-field="mobile" placeholder="10-digit number" required>
+                          <div class="field-error"></div>
+                        </div>
+                        <div class="form-group">
+                          <label>Email Address</label>
+                          <input type="email" class="member-input" data-field="email" placeholder="m4@domain.com" required>
+                          <div class="field-error"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="btn-group mt-32">
+            <button type="button" class="btn btn-secondary" id="btn-step-2-back">Back</button>
+            <button type="button" class="btn btn-primary" id="btn-step-2-next">
+              Proceed to Review <i data-lucide="eye" class="w-14"></i>
+              <span class="btn-underline"></span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 3. STEP 3: REVIEW DETAILS -->
+        <div class="step-content" id="step-pane-3">
+          <h3 class="step-title-header text-uppercase mb-8">Step 3: Review Registration Details</h3>
+          <p class="step-subtitle-header mb-24">Confirm all names, emails, and phone digits are correct before locking in your crew.</p>
+          
+          <div class="card mb-24">
+            <div class="card-body">
+              <div class="confirm-summary-grid">
+                <div>
+                  <span class="text-xs text-dim font-mono">TEAM IDENTIFICATION</span>
+                  <h4 class="text-3xl font-space mt-4" id="review-team-name">Loading...</h4>
+                </div>
+                <div>
+                  <span class="text-xs text-dim font-mono">SELECTED LEADER</span>
+                  <h4 class="text-3xl mt-4" id="review-team-leader">Loading...</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-cards-grid mb-32" id="review-members-container">
+            <!-- Populated via register.js -->
+          </div>
+
+          <div class="btn-group mt-32">
+            <button type="button" class="btn btn-secondary" id="btn-step-3-back">Back to Edit</button>
+            <button type="button" class="btn btn-primary" id="btn-step-3-confirm">
+              Lock In and Submit Registration <i data-lucide="check" class="w-14"></i>
+              <span class="btn-underline"></span>
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-container">
+        <div class="footer-col-masthead">
+          <h3 class="footer-masthead-title">CodeForge</h3>
+          <p class="footer-masthead-sub">Baba Saheb Naik College of Engineering</p>
+          <p class="footer-masthead-loc">Pusad, Yavatmal</p>
+          <p class="footer-about-text mt-16">Annual Hackathon pushing the boundaries of software engineering, embedded logic, and design craftsmanship.</p>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html">Participant Gate</a></li>
+            <li><a href="admin-login.html">Admin Gate</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-title">Important Links</h4>
+          <ul class="footer-links">
+            <li><a href="#">About CodeForge</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+          </ul>
+        </div>
+        <div class="footer-col-organizers">
+          <h4 class="footer-col-title">Event Organizers</h4>
+          <ul class="footer-organizer-list" id="footer-organizers-list">
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-container bottom-container">
+        <span class="footer-copyright">&copy; 2026 Baba Saheb Naik College of Engineering, Pusad. All Rights Reserved.</span>
+        <span class="footer-signature font-mono">POWERED BY CODEFORGE SYSTEM & SARTHAK UBALE</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Alert Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/register.js"></script>
+</body>
+</html>

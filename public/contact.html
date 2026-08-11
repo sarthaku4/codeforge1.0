@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | CodeForge'26 — BNCOE Pusad</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;1,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div id="toast-container" class="toast-container"></div>
+
+  <header class="header">
+    <div class="header-container">
+      <div class="header-left">
+        <div class="institute-logo-placeholder">
+          <img id="header-college-logo" src="" alt="" style="display: none;">
+          <img class="header-logo-anvil" id="logo-icon-fallback" src="img/anvil_logo.png" alt="Anvil Logo">
+        </div>
+        <div class="header-branding">
+          <h1 class="logo-wordmark"><a href="index.html" style="border:none;">Code<span class="logo-accent">Forge</span></a></h1>
+          <div class="institute-name">Baba Saheb Naik College of Engineering, Pusad</div>
+        </div>
+      </div>
+      <div class="header-center">
+        <nav class="header-nav">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="sponsors.html" class="nav-link">Sponsors</a>
+          <a href="contact.html" class="nav-link active">Contact</a>
+        </nav>
+      </div>
+      <div class="header-right">
+        <div id="user-profile-menu" class="profile-menu" style="display: none;">
+          <div class="profile-badge" id="profile-badge-text">U</div>
+          <span class="profile-email" id="profile-email-text">user@email.com</span>
+          <button class="btn btn-ghost btn-sm" id="btn-logout">
+            <i data-lucide="log-out"></i>
+            <span>Logout</span>
+            <span class="btn-underline"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content" style="position: relative; z-index: 2;">
+
+    <!-- Title -->
+    <section class="landing-section" style="padding-top: 80px; padding-bottom: 40px; border-top: none;">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title"><i data-lucide="phone" class="icon-amber mr-8"></i> Let's Connect</h2>
+          <p class="section-subtitle">Department of Computer Science & Engineering, BNCOE Pusad</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dynamic Organizer Contacts from DB -->
+    <section class="landing-section" id="organizer-section" style="display: none;">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title" style="font-size: var(--font-lg);"><i data-lucide="users" class="icon-amber mr-8"></i> Student Coordinators</h2>
+        </div>
+        <div class="contact-grid" id="landing-contact-grid"></div>
+
+        <!-- Availability Note -->
+        <div style="margin-top: 24px; display: flex; align-items: flex-start; gap: 14px; padding: 18px 22px; border: 1px solid rgba(255,122,26,0.3); border-left: 4px solid #FF7A1A; background: rgba(255,122,26,0.06); border-radius: 0;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF7A1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top: 1px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          <p style="font-size: 0.8rem; color: #8A9196; line-height: 1.75; margin: 0;">
+            <strong style="color: #CFD4D7; font-weight: 600;">Note:</strong> The organizers are students, so please try to call them between <strong style="color: #FF7A1A;">8:00–11:00 AM</strong> or <strong style="color: #FF7A1A;">6:00–10:00 PM</strong>. They may be attending lectures during other hours. If they are unavailable when you call, they will return your call once they are free.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Venue & Email -->
+    <section class="landing-section">
+      <div class="section-container">
+        <div class="features-grid" style="grid-template-columns: 1fr 1fr;">
+          <div class="card header-glow-card">
+            <div class="card-body">
+              <h3 class="card-title text-uppercase mb-16"><i data-lucide="building-2" class="icon-amber"></i> Venue</h3>
+              <p class="card-desc" style="margin-bottom: 0;">Janata Shikshan Prasarak Mandal's<br>Babasaheb Naik College of Engineering<br>Pusad – 445 215, Dist. Yavatmal (M.S.)</p>
+            </div>
+          </div>
+          <div class="card header-glow-card">
+            <div class="card-body">
+              <h3 class="card-title text-uppercase mb-16"><i data-lucide="mail" class="icon-amber"></i> Email</h3>
+              <p class="card-desc" style="margin-bottom: 12px;">For sponsorship enquiries, registrations, and general info:</p>
+              <a href="mailto:codeforge2k26@gmail.com" style="color: var(--accent); text-decoration: none; font-weight: 700; font-family: 'JetBrains Mono', monospace; font-size: var(--font-xs);">codeforge2k26@gmail.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Map -->
+    <section class="landing-section" style="border-bottom: var(--border-width) solid var(--border);">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title" style="font-size: var(--font-lg);"><i data-lucide="navigation" class="icon-amber mr-8"></i> Find Us</h2>
+        </div>
+        <div style="border-radius: var(--radius); overflow: hidden; border: var(--border-width) solid var(--border); height: 350px;">
+          <iframe
+            src="https://maps.google.com/maps?q=Babasaheb+Naik+College+of+Engineering+Pusad+Yavatmal&output=embed"
+            width="100%" height="100%"
+            style="border:0; filter: invert(0.9) hue-rotate(180deg) saturate(0.3) brightness(0.7);"
+            allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-container">
+        <div class="footer-col-masthead">
+          <h3 class="footer-masthead-title">CodeForge</h3>
+          <p class="footer-masthead-sub">Baba Saheb Naik College of Engineering</p>
+          <p class="footer-masthead-loc">Pusad, Yavatmal</p>
+          <p class="footer-about-text mt-16">A one-day hackathon by the Department of Computer Science & Engineering, BNCOE Pusad.</p>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="sponsors.html">Sponsors</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-title">Important Links</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About CodeForge</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+          </ul>
+        </div>
+        <div class="footer-col-organizers">
+          <h4 class="footer-col-title">Event Organizers</h4>
+          <ul class="footer-organizer-list" id="footer-organizers-list"></ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-container bottom-container">
+        <span class="footer-copyright">&copy; 2026 Baba Saheb Naik College of Engineering, Pusad. All Rights Reserved.</span>
+        <span class="footer-signature font-mono">POWERED BY CODEFORGE SYSTEM & SARTHAK UBALE</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/db.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      await window.cfReady;
+      const contactGrid = document.getElementById('landing-contact-grid');
+      const orgSection = document.getElementById('organizer-section');
+      if (contactGrid && window.state && state.settings) {
+        // Collect organizers from flat fields
+        const validOrgs = [];
+        for (let i = 1; i <= 4; i++) {
+          const name = state.settings[`organizer${i}_name`];
+          const phone = state.settings[`organizer${i}_phone`];
+          if (name && phone) {
+            validOrgs.push({ name, phone });
+          }
+        }
+
+        if (validOrgs.length > 0) {
+          orgSection.style.display = 'block';
+          contactGrid.innerHTML = '';
+          validOrgs.forEach((org) => {
+            const card = document.createElement('div');
+            card.className = 'card header-glow-card';
+            card.innerHTML = `
+              <div class="card-body" style="padding: 24px;">
+                <h4 style="font-size: var(--font-sm); font-weight: 700; margin-bottom: 4px; color: var(--foreground); text-transform: uppercase;">${org.name}</h4>
+                <span style="font-size: var(--font-xs); color: var(--muted-foreground); display: block; margin-bottom: 12px;">Student Coordinator</span>
+                <a href="tel:${org.phone}" style="text-decoration: none; font-weight: 600; color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: var(--font-xs);"><i data-lucide="phone" style="width: 14px; height: 14px; display: inline-block; vertical-align: middle; margin-right: 6px;"></i> ${org.phone}</a>
+              </div>
+            `;
+            contactGrid.appendChild(card);
+          });
+          if (typeof lucide !== 'undefined') lucide.createIcons();
+        }
+      }
+    });
+  </script>
+</body>
+</html>

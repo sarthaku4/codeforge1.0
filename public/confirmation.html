@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Confirmed | CodeForge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;1,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-container">
+      <div class="header-left">
+        <div class="institute-logo-placeholder">
+          <img id="header-college-logo" src="" alt="" style="display: none;">
+          <img class="header-logo-anvil" id="logo-icon-fallback" src="img/anvil_logo.png" alt="Anvil Logo">
+        </div>
+        <div class="header-branding">
+          <h1 class="logo-wordmark"><a href="index.html" style="border:none;">Code<span class="logo-accent">Forge</span></a></h1>
+          <div class="institute-name">Baba Saheb Naik College of Engineering, Pusad</div>
+        </div>
+      </div>
+      <div class="header-right">
+        <div id="user-profile-menu" class="profile-menu" style="display: none;">
+          <div class="profile-badge" id="profile-badge-text">U</div>
+          <span class="profile-email" id="profile-email-text">user@email.com</span>
+          <button class="btn btn-ghost btn-sm" id="btn-logout">
+            <i data-lucide="log-out"></i>
+            <span>Logout</span>
+            <span class="btn-underline"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+      <section id="view-confirmation" class="app-view active">
+        <div class="confirm-container">
+          <div class="card max-w-640 mx-auto header-glow-card">
+            <div class="card-body text-center">
+              <div class="success-icon-container">
+                <i data-lucide="check-circle" class="icon-green"></i>
+              </div>
+              
+              <h2 class="confirm-title text-uppercase font-space">Registration Confirmed</h2>
+              <p class="success-banner-desc">Your team details have been locked into the system database. Your unique registration identifier has been generated below.</p>
+              
+              <div class="badge-reg-code font-space mb-24" id="confirm-reg-id">CF2026-XXXX</div>
+              
+              <div class="confirm-details-list mt-24">
+                <div class="detail-row">
+                  <span class="detail-label">Team Name:</span>
+                  <span class="detail-val" id="confirm-team-name">Loading...</span>
+                </div>
+                <div class="detail-row">
+                  <span class="detail-label">Team Leader:</span>
+                  <span class="detail-val" id="confirm-leader-name">Loading...</span>
+                </div>
+                <div class="detail-row">
+                  <span class="detail-label">Confirmed At:</span>
+                  <span class="detail-val font-mono" id="confirm-timestamp">Loading...</span>
+                </div>
+              </div>
+              
+              <div class="alert-info mt-24 text-left">
+                <i data-lucide="alert-circle"></i>
+                <p><strong>Next Step Required:</strong> To activate and verify your registration, you must complete the payment step. Slots are allocated on a first-verified basis.</p>
+              </div>
+              
+              <div class="btn-group mt-32">
+                <button class="btn btn-primary btn-block" id="btn-confirm-proceed">
+                  Proceed to Payment <i data-lucide="arrow-right" class="w-14"></i>
+                  <span class="btn-underline"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-container">
+        <div class="footer-col-masthead">
+          <h3 class="footer-masthead-title">CodeForge</h3>
+          <p class="footer-masthead-sub">Baba Saheb Naik College of Engineering</p>
+          <p class="footer-masthead-loc">Pusad, Yavatmal</p>
+          <p class="footer-about-text mt-16">Annual Hackathon pushing the boundaries of software engineering, embedded logic, and design craftsmanship.</p>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html">Participant Gate</a></li>
+            <li><a href="admin-login.html">Admin Gate</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-title">Important Links</h4>
+          <ul class="footer-links">
+            <li><a href="#">About CodeForge</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+          </ul>
+        </div>
+        <div class="footer-col-organizers">
+          <h4 class="footer-col-title">Event Organizers</h4>
+          <ul class="footer-organizer-list" id="footer-organizers-list">
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-container bottom-container">
+        <span class="footer-copyright">&copy; 2026 Baba Saheb Naik College of Engineering, Pusad. All Rights Reserved.</span>
+        <span class="footer-signature font-mono">POWERED BY CODEFORGE SYSTEM & SARTHAK UBALE</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/db.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const regId      = sessionStorage.getItem('cf_reg_id');
+      const teamName   = sessionStorage.getItem('cf_team_name');
+      const leaderName = sessionStorage.getItem('cf_leader_name');
+
+      if (!regId) {
+        // No pending registration — redirect back to dashboard
+        window.location.replace('dashboard.html');
+        return;
+      }
+
+      document.getElementById('confirm-reg-id').textContent      = regId;
+      document.getElementById('confirm-team-name').textContent    = teamName  || '—';
+      document.getElementById('confirm-leader-name').textContent  = leaderName || '—';
+      document.getElementById('confirm-timestamp').textContent    = new Date().toLocaleString();
+
+      // Clear the keys so a page refresh doesn't re-show stale data
+      sessionStorage.removeItem('cf_reg_id');
+      sessionStorage.removeItem('cf_team_name');
+      sessionStorage.removeItem('cf_leader_name');
+
+      document.getElementById('btn-confirm-proceed').addEventListener('click', () => {
+        window.location.href = 'payment.html';
+      });
+    });
+  </script>
+</body>
+</html>

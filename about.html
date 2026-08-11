@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | CodeForge'26 — BNCOE Pusad</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;1,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div id="toast-container" class="toast-container"></div>
+
+  <header class="header">
+    <div class="header-container">
+      <div class="header-left">
+        <div class="institute-logo-placeholder">
+          <img id="header-college-logo" src="" alt="" style="display: none;">
+          <img class="header-logo-anvil" id="logo-icon-fallback" src="img/anvil_logo.png" alt="Anvil Logo">
+        </div>
+        <div class="header-branding">
+          <h1 class="logo-wordmark"><a href="index.html" style="border:none;">Code<span class="logo-accent">Forge</span></a></h1>
+          <div class="institute-name">Baba Saheb Naik College of Engineering, Pusad</div>
+        </div>
+      </div>
+      <div class="header-center">
+        <nav class="header-nav">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link active">About</a>
+          <a href="sponsors.html" class="nav-link">Sponsors</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+      </div>
+      <div class="header-right">
+        <div id="user-profile-menu" class="profile-menu" style="display: none;">
+          <div class="profile-badge" id="profile-badge-text">U</div>
+          <span class="profile-email" id="profile-email-text">user@email.com</span>
+          <button class="btn btn-ghost btn-sm" id="btn-logout">
+            <i data-lucide="log-out"></i>
+            <span>Logout</span>
+            <span class="btn-underline"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content" style="position: relative; z-index: 2;">
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- HERO BANNER -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="landing-section" style="padding-top: 80px; padding-bottom: 48px; border-top: none;">
+      <div class="section-container">
+        <div class="section-header" style="margin-bottom: 24px;">
+          <p style="font-size: var(--font-xs); text-transform: uppercase; letter-spacing: var(--track-widest); color: var(--accent); font-weight: 700; margin-bottom: 12px;">3rd September 2026 · 09:00 AM Onwards</p>
+          <h2 class="section-title" style="font-size: clamp(1.6rem, 4vw, 2.4rem); line-height: 1.15;">CodeForge'26</h2>
+          <p style="font-size: var(--font-lg); color: var(--muted-foreground); font-weight: 500; margin-top: 8px;">Code Today. Forge Tomorrow.</p>
+          <p class="section-subtitle" style="margin-top: 16px;">A one-day hackathon by the Department of Computer Science & Engineering, BNCOE Pusad.</p>
+          <div style="display: flex; gap: 16px; justify-content: center; margin-top: 24px; flex-wrap: wrap;">
+            <a href="index.html" class="btn btn-primary">
+              <span>Register Your Team</span> <i data-lucide="arrow-right" class="w-14"></i>
+              <span class="btn-underline"></span>
+            </a>
+            <a id="btn-download-brochure" href="#" target="_blank" rel="noopener" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 8px;">
+              <i data-lucide="file-text" class="w-14"></i> <span>Official Rulebook / Brochure</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- THE EVENT -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="landing-section">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title"><i data-lucide="flame" class="icon-amber mr-8"></i> The Event</h2>
+          <p class="section-subtitle">Our hackathon is built around impact, innovation, and inclusion</p>
+        </div>
+        <div class="features-grid" style="grid-template-columns: repeat(2, 1fr);">
+          <div class="card header-glow-card">
+            <div class="card-body">
+              <h3 class="card-title text-uppercase mb-16"><i data-lucide="network" class="icon-amber"></i> Intercollege Networks</h3>
+              <p class="card-desc">Building strong intercollege collaborations and sparking innovation through creative problem-solving.</p>
+            </div>
+          </div>
+          <div class="card header-glow-card">
+            <div class="card-body">
+              <h3 class="card-title text-uppercase mb-16"><i data-lucide="lightbulb" class="icon-amber"></i> Innovation Council</h3>
+              <p class="card-desc">Partnering with the Institute Innovation Council to nurture ideas into potential startups.</p>
+            </div>
+          </div>
+          <div class="card header-glow-card">
+            <div class="card-body">
+              <h3 class="card-title text-uppercase mb-16"><i data-lucide="bot" class="icon-amber"></i> Open AI Access</h3>
+              <p class="card-desc">Offering open access to AI tools, empowering participants to experiment freely with cutting-edge technology.</p>
+            </div>
+          </div>
+          <div class="card header-glow-card">
+            <div class="card-body">
+              <h3 class="card-title text-uppercase mb-16"><i data-lucide="rocket" class="icon-amber"></i> Entrepreneurship</h3>
+              <p class="card-desc">Promoting a culture of entrepreneurship, teamwork, and future-ready skills for tomorrow's leaders.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Open To -->
+        <div style="text-align: center; margin-top: 32px; padding: 20px; border: var(--border-width) solid var(--border); border-radius: var(--radius); background: rgba(255,122,26,0.04);">
+          <p style="font-size: var(--font-xs); text-transform: uppercase; letter-spacing: var(--track-widest); color: var(--accent); font-weight: 700; margin-bottom: 4px;">Open To</p>
+          <p style="font-size: var(--font-sm); color: var(--foreground); font-weight: 500;">Engineering and Polytechnic students from all departments and all states.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- HACKATHON THEMES -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="landing-section">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title"><i data-lucide="layers" class="icon-amber mr-8"></i> Hackathon Themes</h2>
+        </div>
+        <div class="features-grid" style="grid-template-columns: repeat(3, 1fr);">
+          <div class="card header-glow-card" style="text-align: center;">
+            <div class="card-body" style="padding: 32px 24px;">
+              <div style="width: 56px; height: 56px; border-radius: 50%; background: rgba(255,122,26,0.1); border: var(--border-width) solid var(--accent); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+                <i data-lucide="heart-pulse" style="width: 24px; height: 24px; color: var(--accent);"></i>
+              </div>
+              <h3 class="card-title" style="font-size: var(--font-sm); text-transform: uppercase; letter-spacing: var(--track-wider); justify-content: center;">Healthcare & Well-being</h3>
+            </div>
+          </div>
+          <div class="card header-glow-card" style="text-align: center;">
+            <div class="card-body" style="padding: 32px 24px;">
+              <div style="width: 56px; height: 56px; border-radius: 50%; background: rgba(255,122,26,0.1); border: var(--border-width) solid var(--accent); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+                <i data-lucide="graduation-cap" style="width: 24px; height: 24px; color: var(--accent);"></i>
+              </div>
+              <h3 class="card-title" style="font-size: var(--font-sm); text-transform: uppercase; letter-spacing: var(--track-wider); justify-content: center;">Education & Campus Innovation</h3>
+            </div>
+          </div>
+          <div class="card header-glow-card" style="text-align: center;">
+            <div class="card-body" style="padding: 32px 24px;">
+              <div style="width: 56px; height: 56px; border-radius: 50%; background: rgba(255,122,26,0.1); border: var(--border-width) solid var(--accent); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+                <i data-lucide="globe" style="width: 24px; height: 24px; color: var(--accent);"></i>
+              </div>
+              <h3 class="card-title" style="font-size: var(--font-sm); text-transform: uppercase; letter-spacing: var(--track-wider); justify-content: center;">Smart Web & Digital Solutions</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- EVENT FLOW -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="landing-section">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title"><i data-lucide="git-branch" class="icon-amber mr-8"></i> Event Flow</h2>
+          <p class="section-subtitle">Team size: 1–4 members. Register through our official website.</p>
+        </div>
+
+        <!-- Timeline Steps -->
+        <div class="event-timeline">
+          <div class="timeline-step">
+            <div class="timeline-number">1</div>
+            <div class="timeline-content">
+              <h4>Inauguration</h4>
+              <p>Welcome address by HoD and faculty dignitaries.</p>
+            </div>
+          </div>
+          <div class="timeline-step">
+            <div class="timeline-number">2</div>
+            <div class="timeline-content">
+              <h4>Theme Release</h4>
+              <p>Track guidelines and instructions announced.</p>
+            </div>
+          </div>
+          <div class="timeline-step">
+            <div class="timeline-number">3</div>
+            <div class="timeline-content">
+              <h4>Prototype Build</h4>
+              <p>Non-stop coding and hardware prototyping.</p>
+            </div>
+          </div>
+          <div class="timeline-step">
+            <div class="timeline-number">4</div>
+            <div class="timeline-content">
+              <h4>Judging & Demos</h4>
+              <p>Live project evaluation by expert judges.</p>
+            </div>
+          </div>
+          <div class="timeline-step">
+            <div class="timeline-number">5</div>
+            <div class="timeline-content">
+              <h4>Closing Ceremony</h4>
+              <p>Prize announcements and distribution.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- PRIZE POOL -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="landing-section">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title"><i data-lucide="trophy" class="icon-amber mr-8"></i> Prize Pool & Rewards</h2>
+          <p class="section-subtitle">Cash prizes + certificate + memento for all three positions</p>
+        </div>
+        <div class="features-grid" style="grid-template-columns: repeat(3, 1fr);">
+          <!-- Winner -->
+          <div class="card header-glow-card" style="text-align: center; border-color: var(--accent);">
+            <div class="card-body" style="padding: 36px 24px;">
+              <div style="font-size: 11px; text-transform: uppercase; letter-spacing: var(--track-widest); color: var(--accent); font-weight: 700; margin-bottom: 8px;">🏆 Winner</div>
+              <div style="font-family: 'Inter Tight', sans-serif; font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; color: var(--foreground); line-height: 1;">₹10,000</div>
+            </div>
+          </div>
+          <!-- 1st Runner Up -->
+          <div class="card header-glow-card" style="text-align: center;">
+            <div class="card-body" style="padding: 36px 24px;">
+              <div style="font-size: 11px; text-transform: uppercase; letter-spacing: var(--track-widest); color: var(--muted-foreground); font-weight: 700; margin-bottom: 8px;">🥈 1st Runner-Up</div>
+              <div style="font-family: 'Inter Tight', sans-serif; font-size: clamp(1.6rem, 2.5vw, 2rem); font-weight: 800; color: var(--foreground); line-height: 1;">₹7,000</div>
+            </div>
+          </div>
+          <!-- 2nd Runner Up -->
+          <div class="card header-glow-card" style="text-align: center;">
+            <div class="card-body" style="padding: 36px 24px;">
+              <div style="font-size: 11px; text-transform: uppercase; letter-spacing: var(--track-widest); color: var(--muted-foreground); font-weight: 700; margin-bottom: 8px;">🥉 2nd Runner-Up</div>
+              <div style="font-family: 'Inter Tight', sans-serif; font-size: clamp(1.4rem, 2vw, 1.8rem); font-weight: 800; color: var(--foreground); line-height: 1;">₹5,000</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- ORGANIZING INSTITUTION -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="landing-section">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title"><i data-lucide="building-2" class="icon-amber mr-8"></i> Organizing Institution</h2>
+          <p class="section-subtitle">Janata Shikshan Prasarak Mandal's Babasaheb Naik College of Engineering, Pusad – 445 215, Dist. Yavatmal (M.S.)</p>
+        </div>
+
+        <div class="features-grid" style="grid-template-columns: repeat(2, 1fr);">
+          <div class="card header-glow-card">
+            <div class="card-body">
+              <h3 class="card-title text-uppercase mb-16"><i data-lucide="award" class="icon-amber"></i> Established & Affiliated</h3>
+              <p class="card-desc">Established in 1983, affiliated with Sant Gadge Baba Amravati University, guided by 180+ faculty members.</p>
+            </div>
+          </div>
+          <div class="card header-glow-card">
+            <div class="card-body">
+              <h3 class="card-title text-uppercase mb-16"><i data-lucide="shield-check" class="icon-amber"></i> Accreditation</h3>
+              <p class="card-desc">Accredited by AICTE, NBA and NAAC; rated "Grade A" by the Government of Maharashtra.</p>
+            </div>
+          </div>
+          <div class="card header-glow-card">
+            <div class="card-body">
+              <h3 class="card-title text-uppercase mb-16"><i data-lucide="library" class="icon-amber"></i> Campus & Library</h3>
+              <p class="card-desc">30-acre campus with modern labs and a digital library of 60,000+ books plus IEEE / ASME / ASCE journals.</p>
+            </div>
+          </div>
+          <div class="card header-glow-card">
+            <div class="card-body">
+              <h3 class="card-title text-uppercase mb-16"><i data-lucide="book-open" class="icon-amber"></i> Programs Offered</h3>
+              <p class="card-desc">UG, PG and PhD programs in Computer Science, Mechanical, Civil, Electrical, and Electronics & Telecommunication.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Enrollment Stats -->
+        <div style="margin-top: 32px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;">
+          <div style="text-align: center; padding: 24px 16px; border: var(--border-width) solid var(--border); border-radius: var(--radius); background: var(--card);">
+            <div style="font-family: 'Inter Tight', sans-serif; font-size: var(--font-2xl); font-weight: 800; color: var(--accent);">1,690</div>
+            <div style="font-size: var(--font-xs); text-transform: uppercase; letter-spacing: var(--track-wider); color: var(--muted-foreground); margin-top: 4px;">Total Students</div>
+          </div>
+          <div style="text-align: center; padding: 24px 16px; border: var(--border-width) solid var(--border); border-radius: var(--radius); background: var(--card);">
+            <div style="font-family: 'Inter Tight', sans-serif; font-size: var(--font-2xl); font-weight: 800; color: var(--foreground);">180+</div>
+            <div style="font-size: var(--font-xs); text-transform: uppercase; letter-spacing: var(--track-wider); color: var(--muted-foreground); margin-top: 4px;">Faculty Members</div>
+          </div>
+          <div style="text-align: center; padding: 24px 16px; border: var(--border-width) solid var(--border); border-radius: var(--radius); background: var(--card);">
+            <div style="font-family: 'Inter Tight', sans-serif; font-size: var(--font-2xl); font-weight: 800; color: var(--foreground);">30</div>
+            <div style="font-size: var(--font-xs); text-transform: uppercase; letter-spacing: var(--track-wider); color: var(--muted-foreground); margin-top: 4px;">Acre Campus</div>
+          </div>
+          <div style="text-align: center; padding: 24px 16px; border: var(--border-width) solid var(--border); border-radius: var(--radius); background: var(--card);">
+            <div style="font-family: 'Inter Tight', sans-serif; font-size: var(--font-2xl); font-weight: 800; color: var(--foreground);">60K+</div>
+            <div style="font-size: var(--font-xs); text-transform: uppercase; letter-spacing: var(--track-wider); color: var(--muted-foreground); margin-top: 4px;">Library Books</div>
+          </div>
+        </div>
+
+        <!-- Intake Table -->
+        <div style="margin-top: 32px; border: var(--border-width) solid var(--border); border-radius: var(--radius); overflow: hidden;">
+          <div style="padding: 16px 20px; background: rgba(255,122,26,0.06); border-bottom: var(--border-width) solid var(--border);">
+            <h4 style="font-size: var(--font-sm); font-weight: 700; text-transform: uppercase; letter-spacing: var(--track-wider); color: var(--foreground); margin: 0;">UG Intake 2026–27</h4>
+          </div>
+          <div style="padding: 0;">
+            <table style="width: 100%; border-collapse: collapse; font-size: var(--font-sm);">
+              <tr style="border-bottom: var(--border-width) solid var(--border);">
+                <td style="padding: 12px 20px; color: var(--foreground); font-weight: 500;">Computer Science & Engineering</td>
+                <td style="padding: 12px 20px; text-align: right; color: var(--accent); font-weight: 700; font-family: 'JetBrains Mono', monospace;">120</td>
+              </tr>
+              <tr style="border-bottom: var(--border-width) solid var(--border);">
+                <td style="padding: 12px 20px; color: var(--foreground); font-weight: 500;">Artificial Intelligence & Data Science</td>
+                <td style="padding: 12px 20px; text-align: right; color: var(--accent); font-weight: 700; font-family: 'JetBrains Mono', monospace;">60</td>
+              </tr>
+              <tr>
+                <td style="padding: 12px 20px; color: var(--foreground); font-weight: 500;">Civil / Electrical / Mechanical Engineering</td>
+                <td style="padding: 12px 20px; text-align: right; color: var(--accent); font-weight: 700; font-family: 'JetBrains Mono', monospace;">60 each</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- CTA -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="landing-section" style="border-bottom: var(--border-width) solid var(--border);">
+      <div class="section-container">
+        <div style="text-align: center; padding: 40px; border: var(--border-width) solid var(--accent); border-radius: var(--radius); background: rgba(255,122,26,0.04);">
+          <h3 style="font-size: var(--font-lg); font-weight: 800; text-transform: uppercase; margin-bottom: 8px; letter-spacing: var(--track-wide);"><i data-lucide="zap" class="icon-amber" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;"></i> Ready to Forge?</h3>
+          <p class="card-desc" style="margin-bottom: 24px; max-width: 480px; margin-left: auto; margin-right: auto;">Register your team and be part of CodeForge'26 on 3rd September 2026.</p>
+          <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+            <a href="index.html" class="btn btn-primary" style="padding: 10px 28px; font-weight: 600;">Register Now <span class="btn-underline"></span></a>
+            <a href="sponsors.html" class="btn btn-ghost" style="padding: 10px 28px; font-weight: 600; border: var(--border-width) solid var(--border);">Become a Sponsor <span class="btn-underline"></span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-container">
+        <div class="footer-col-masthead">
+          <h3 class="footer-masthead-title">CodeForge</h3>
+          <p class="footer-masthead-sub">Baba Saheb Naik College of Engineering</p>
+          <p class="footer-masthead-loc">Pusad, Yavatmal</p>
+          <p class="footer-about-text mt-16">A one-day hackathon by the Department of Computer Science & Engineering, BNCOE Pusad.</p>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="sponsors.html">Sponsors</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-title">Important Links</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About CodeForge</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+          </ul>
+        </div>
+        <div class="footer-col-organizers">
+          <h4 class="footer-col-title">Event Organizers</h4>
+          <ul class="footer-organizer-list" id="footer-organizers-list"></ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-container bottom-container">
+        <span class="footer-copyright">&copy; 2026 Baba Saheb Naik College of Engineering, Pusad. All Rights Reserved.</span>
+        <span class="footer-signature font-mono">POWERED BY CODEFORGE SYSTEM & SARTHAK UBALE</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/db.js"></script>
+</body>
+</html>

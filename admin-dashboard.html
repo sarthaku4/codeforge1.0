@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | CodeForge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;1,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-container">
+      <div class="header-left">
+        <div class="institute-logo-placeholder">
+          <img id="header-college-logo" src="" alt="" style="display: none;">
+          <img class="header-logo-anvil" id="logo-icon-fallback" src="img/anvil_logo.png" alt="Anvil Logo">
+        </div>
+        <div class="header-branding">
+          <h1 class="logo-wordmark"><a href="index.html" style="border:none;">Code<span class="logo-accent">Forge</span></a></h1>
+          <div class="institute-name">Baba Saheb Naik College of Engineering, Pusad</div>
+        </div>
+      </div>
+      <div class="header-right">
+        <div id="user-profile-menu" class="profile-menu" style="display: none;">
+          <div class="profile-badge" id="profile-badge-text">A</div>
+          <span class="profile-email" id="profile-email-text">admin@codeforge.org</span>
+          <button class="btn btn-ghost btn-sm" id="btn-logout">
+            <i data-lucide="log-out"></i>
+            <span>Logout</span>
+            <span class="btn-underline"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+      <section id="view-admin-dashboard" class="app-view active">
+        <div class="admin-header-row mb-24">
+          <div>
+            <h2 class="dashboard-title text-uppercase tracking-tighter">Command Center</h2>
+            <p class="admin-subtitle">CodeForge Registration and Verification Platform</p>
+          </div>
+          <div class="admin-actions-menu">
+            <a href="admin-settings.html" class="btn btn-secondary btn-sm" id="btn-go-settings">
+              <i data-lucide="settings" class="w-14"></i> <span>Settings</span>
+            </a>
+            <button class="btn btn-primary btn-sm" id="btn-export-excel">
+              <i data-lucide="file-spreadsheet" class="w-14"></i> <span>Export Excel</span>
+              <span class="btn-underline"></span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 10 Stat Cards Grid -->
+        <div class="admin-stats-grid mb-32" style="grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));">
+          <div class="stat-card">
+            <div class="stat-accent-bar bg-blue"></div>
+            <div class="stat-num font-space" id="stat-total-users">0</div>
+            <div class="stat-label">Total Users</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-accent-bar bg-amber"></div>
+            <div class="stat-num font-space" id="stat-total-teams">0</div>
+            <div class="stat-label">Total Teams</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-accent-bar bg-green"></div>
+            <div class="stat-num font-space" id="stat-total-participants">0</div>
+            <div class="stat-label">Total Members</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-accent-bar bg-pending"></div>
+            <div class="stat-num font-space" id="stat-pending-payments">0</div>
+            <div class="stat-label">Pending Payments</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-accent-bar bg-submitted"></div>
+            <div class="stat-num font-space" id="stat-submitted-payments">0</div>
+            <div class="stat-label">Submitted Payments</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-accent-bar bg-verified"></div>
+            <div class="stat-num font-space" id="stat-verified-payments">0</div>
+            <div class="stat-label">Verified Payments</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-accent-bar" style="background: #3b82f6;"></div>
+            <div class="stat-num font-space" id="stat-checked-in">0</div>
+            <div class="stat-label">Venue Checked-In</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-accent-bar" style="background: #a855f7;"></div>
+            <div class="stat-num font-space" id="stat-projects-submitted">0</div>
+            <div class="stat-label">Projects Submitted</div>
+          </div>
+          <!-- Google Form Click Tracking Cards -->
+          <div class="stat-card">
+            <div class="stat-accent-bar" style="background: #f97316;"></div>
+            <div class="stat-num font-space" id="stat-form-clicks-total">0</div>
+            <div class="stat-label">Form Clicks (All)</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-accent-bar" style="background: #ec4899;"></div>
+            <div class="stat-num font-space" id="stat-form-clicks-today">0</div>
+            <div class="stat-label">Form Clicks Today</div>
+          </div>
+        </div>
+
+        <!-- Filters and Table Controls -->
+        <div class="card mb-24">
+          <div class="card-body">
+            <div class="table-controls-grid">
+              <div class="form-group mb-0">
+                <div class="input-wrapper">
+                  <i data-lucide="search" class="input-icon"></i>
+                  <input type="text" id="admin-search-input" placeholder="Search by team, name, email, phone, or ID...">
+                </div>
+              </div>
+              
+              <div class="filters-subgrid">
+                <select id="filter-payment-status">
+                  <option value="">All Statuses</option>
+                  <option value="Pending">Pending</option>
+                  <option value="Submitted">Submitted</option>
+                  <option value="Verified">Verified</option>
+                  <option value="Rejected">Rejected</option>
+                </select>
+                
+                <select id="filter-college">
+                  <option value="">All Colleges</option>
+                </select>
+
+                <select id="filter-branch">
+                  <option value="">All Branches</option>
+                </select>
+                
+                <select id="filter-year">
+                  <option value="">All Years</option>
+                  <option value="1">1st Year</option>
+                  <option value="2">2nd Year</option>
+                  <option value="3">3rd Year</option>
+                  <option value="4">4th Year</option>
+                  <option value="5">5th Year</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Registrations Data Table -->
+        <div class="card overflow-hidden mb-48">
+          <div class="table-responsive">
+            <table class="data-table" id="registrations-table">
+              <thead>
+                <tr>
+                  <th class="sortable" data-sort="registration_id">Registration ID <i data-lucide="arrow-up-down" class="w-12 h-12 inline-block"></i></th>
+                  <th class="sortable" data-sort="team_name">Team Name <i data-lucide="arrow-up-down" class="w-12 h-12 inline-block"></i></th>
+                  <th class="sortable" data-sort="team_leader">Team Leader <i data-lucide="arrow-up-down" class="w-12 h-12 inline-block"></i></th>
+                  <th class="sortable" data-sort="college">College <i data-lucide="arrow-up-down" class="w-12 h-12 inline-block"></i></th>
+                  <th>Members</th>
+                  <th class="sortable" data-sort="registration_date">Date <i data-lucide="arrow-up-down" class="w-12 h-12 inline-block"></i></th>
+                  <th class="sortable" data-sort="payment_status">Payment Status <i data-lucide="arrow-up-down" class="w-12 h-12 inline-block"></i></th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="registrations-table-body">
+              </tbody>
+            </table>
+          </div>
+          
+          <div class="mobile-table-fallback" id="registrations-cards-fallback">
+          </div>
+
+          <div class="empty-state-pane" id="table-empty-state" style="display: none;">
+            <i data-lucide="alert-circle"></i>
+            <p>No registrations matched the search filters.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Modals -->
+  <div class="modal-overlay" id="team-details-modal">
+    <div class="modal-container max-w-960">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title font-space" id="modal-team-name">Team Name</h3>
+          <span class="modal-subtitle font-mono" id="modal-reg-id">CF2026-XXXX</span>
+        </div>
+        <button class="btn-close-modal" id="btn-close-team-modal">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <div class="modal-layout-grid">
+          <div class="modal-col-left">
+            <h4 class="modal-section-title"><i data-lucide="users"></i> Registered Members</h4>
+            <div class="modal-members-grid" id="modal-members-container">
+            </div>
+          </div>
+          
+          <div class="modal-col-right">
+            <h4 class="modal-section-title"><i data-lucide="credit-card"></i> Payment & Gate Check-In</h4>
+            <div class="modal-payment-card card mb-16">
+              <div class="card-body">
+                <div class="detail-row">
+                  <span class="detail-label">Payment Status:</span>
+                  <span class="badge" id="modal-payment-status">Pending</span>
+                </div>
+                <div class="detail-row">
+                  <span class="detail-label">Transaction ID:</span>
+                  <span class="detail-val font-mono" id="modal-transaction-id">UTR-XXXXXXXX</span>
+                </div>
+                <div class="detail-row mt-8" style="border-top: 1px dashed var(--border); padding-top: 8px;">
+                  <span class="detail-label">Venue Attendance:</span>
+                  <span class="badge" id="modal-checkin-status">Not Checked In</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project Details Preview -->
+            <div class="card mb-16" id="modal-project-card" style="display: none;">
+              <div class="card-body">
+                <h5 style="font-size: var(--font-xs); font-weight: 700; text-transform: uppercase; color: var(--foreground); display: flex; align-items: center; gap: 6px; margin-bottom: 8px;">
+                  <i data-lucide="code-2" style="width: 14px; height: 14px; color: var(--primary);"></i> Project Submission
+                </h5>
+                <div class="detail-row"><span class="detail-label">Title:</span> <strong id="modal-proj-title" style="color: var(--foreground);"></strong></div>
+                <div class="detail-row"><span class="detail-label">Track:</span> <span id="modal-proj-theme"></span></div>
+                <div class="detail-row" id="modal-proj-github-row"><span class="detail-label">GitHub:</span> <a id="modal-proj-github" target="_blank" rel="noopener" style="color: var(--primary); text-decoration: underline;"></a></div>
+                <div class="detail-row" id="modal-proj-demo-row"><span class="detail-label">Demo:</span> <a id="modal-proj-demo" target="_blank" rel="noopener" style="color: var(--primary); text-decoration: underline;"></a></div>
+                <div class="mt-8" id="modal-proj-desc" style="font-size: 11px; color: var(--muted-foreground); background: var(--input); padding: 6px 8px; border-radius: 4px; line-height: 1.4;"></div>
+              </div>
+            </div>
+            
+            <div class="screenshot-container card">
+              <div class="card-body p-8">
+                <span class="screenshot-label">Receipt Screenshot (Click to enlarge)</span>
+                <div class="screenshot-frame" id="modal-screenshot-frame">
+                  <img src="" alt="Payment Receipt" id="modal-screenshot-img" class="screenshot-img">
+                  <div class="screenshot-missing" id="modal-screenshot-missing" style="display: none;">
+                    <i data-lucide="alert-octagon"></i>
+                    <p>No screenshot submitted</p>
+                  </div>
+                </div>
+                <button class="btn btn-secondary btn-sm btn-block btn-receipt-download" id="btn-modal-receipt-download" style="display:none;">
+                  <i data-lucide="download" class="w-12"></i> Download Receipt File
+                </button>
+              </div>
+            </div>
+            
+            <div class="modal-action-bar mt-24">
+              <button class="btn btn-success" id="btn-modal-verify">Verify Payment</button>
+              <button class="btn btn-destructive" id="btn-modal-reject">Reject Payment</button>
+              <button class="btn btn-primary" id="btn-modal-checkin">Toggle Check-in</button>
+              <button class="btn btn-secondary" id="btn-modal-edit">Edit Team</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="edit-team-modal">
+    <div class="modal-container max-w-960">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title">Edit Registration</h3>
+          <span class="modal-subtitle font-mono" id="edit-modal-reg-id">CF2026-XXXX</span>
+        </div>
+        <button class="btn-close-modal" id="btn-close-edit-modal">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      
+      <form id="edit-team-form" class="modal-body">
+        <div class="error-region mb-16" id="edit-team-error" style="display: none;"></div>
+        
+        <div class="form-group max-w-480 mb-24">
+          <label for="edit-team-name">Team Name</label>
+          <input type="text" id="edit-team-name" required>
+        </div>
+        
+        <div class="edit-members-container" id="edit-members-inputs">
+        </div>
+        
+        <div class="modal-footer mt-32 justify-end">
+          <button type="button" class="btn btn-secondary mr-16" id="btn-cancel-edit">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="btn-save-edit">
+            Save Changes <span class="btn-underline"></span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="lightbox-overlay" id="screenshot-lightbox">
+    <button class="lightbox-close" id="btn-close-lightbox"><i data-lucide="x"></i></button>
+    <img src="" alt="Enlarged Receipt" class="lightbox-img" id="lightbox-image-target">
+  </div>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-container">
+        <div class="footer-col-masthead">
+          <h3 class="footer-masthead-title">CodeForge</h3>
+          <p class="footer-masthead-sub">Baba Saheb Naik College of Engineering</p>
+          <p class="footer-masthead-loc">Pusad, Yavatmal</p>
+          <p class="footer-about-text mt-16">Annual Hackathon pushing the boundaries of software engineering, embedded logic, and design craftsmanship.</p>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html">Participant Gate</a></li>
+            <li><a href="admin-login.html">Admin Gate</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-title">Important Links</h4>
+          <ul class="footer-links">
+            <li><a href="#">About CodeForge</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+          </ul>
+        </div>
+        <div class="footer-col-organizers">
+          <h4 class="footer-col-title">Event Organizers</h4>
+          <ul class="footer-organizer-list" id="footer-organizers-list">
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-container bottom-container">
+        <span class="footer-copyright">&copy; 2026 Baba Saheb Naik College of Engineering, Pusad. All Rights Reserved.</span>
+        <span class="footer-signature font-mono">POWERED BY CODEFORGE SYSTEM & SARTHAK UBALE</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Alert Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/admin-dashboard.js"></script>
+</body>
+</html>

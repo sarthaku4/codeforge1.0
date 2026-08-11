@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit Payment | CodeForge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;1,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-container">
+      <div class="header-left">
+        <div class="institute-logo-placeholder">
+          <img id="header-college-logo" src="" alt="" style="display: none;">
+          <img class="header-logo-anvil" id="logo-icon-fallback" src="img/anvil_logo.png" alt="Anvil Logo">
+        </div>
+        <div class="header-branding">
+          <h1 class="logo-wordmark"><a href="index.html" style="border:none;">Code<span class="logo-accent">Forge</span></a></h1>
+          <div class="institute-name">Baba Saheb Naik College of Engineering, Pusad</div>
+        </div>
+      </div>
+      <div class="header-right">
+        <div id="user-profile-menu" class="profile-menu" style="display: none;">
+          <div class="profile-badge" id="profile-badge-text">U</div>
+          <span class="profile-email" id="profile-email-text">user@email.com</span>
+          <button class="btn btn-ghost btn-sm" id="btn-logout">
+            <i data-lucide="log-out"></i>
+            <span>Logout</span>
+            <span class="btn-underline"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+      <section id="view-payment" class="app-view active">
+        <div class="payment-layout-grid mb-48">
+          
+          <!-- Left Column: UPI QR Instructions -->
+          <div class="payment-col-left">
+            <div class="card h-full">
+              <div class="card-body">
+                <span class="font-mono text-xs text-dim text-uppercase">Payment Step</span>
+                <h3 class="card-title text-uppercase mt-4 mb-24"><i data-lucide="qr-code"></i> Scan UPI QR Code</h3>
+                
+                <div class="payment-qr-frame mx-auto mb-24">
+                  <img src="" id="payment-qr-image" alt="UPI QR Code" class="payment-qr" style="display: none;">
+                  <div class="qr-missing" id="payment-qr-fallback" style="display: none;">
+                    <i data-lucide="alert-triangle"></i>
+                    <p>No UPI QR Code seeded in settings</p>
+                  </div>
+                </div>
+
+                <div class="payment-instruction-box">
+                  <h4 class="pay-ins-title">Instructions:</h4>
+                  <ol class="pay-ins-list">
+                    <li>Open any UPI application (GPay, PhonePe, Paytm, BHIM) on your phone.</li>
+                    <li>Scan the QR code above or copy the VPA/UPI ID below.</li>
+                    <li>Pay the correct registration fee specified below.</li>
+                    <li>Verify the transaction has succeeded and record the **12-digit UTR/Transaction ID**.</li>
+                    <li>Upload a screenshot of the success page on the right form.</li>
+                  </ol>
+                </div>
+
+                <div class="upi-text-row mt-24">
+                  <div>
+                    <span class="upi-lbl">VPA/UPI ID:</span>
+                    <span class="upi-val font-mono" id="payment-upi-id">codeforge@upi</span>
+                  </div>
+                  <button class="btn btn-ghost btn-sm" id="btn-copy-upi" title="Copy VPA">
+                    <i data-lucide="copy"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Submission Form -->
+          <div class="payment-col-right">
+            <div class="card h-full">
+              <div class="card-body">
+                <h3 class="card-title text-uppercase mb-16"><i data-lucide="credit-card"></i> Submit Verification</h3>
+                <p class="card-desc mb-24">Enter your 12-digit UPI Transaction reference and drop your payment receipt screenshot. The portal current fee is:</p>
+
+                <div class="fee-banner mb-24" id="payment-fee-amount">₹ 500.00</div>
+
+                <div class="detail-row mb-24">
+                  <span class="detail-label">Current Payment Status:</span>
+                  <span class="badge" id="payment-status-badge">Pending</span>
+                </div>
+
+                <div class="error-region mb-16" id="payment-error-box" style="display: none;"></div>
+
+                <form id="payment-form" class="form-grid">
+                  <div class="form-group">
+                    <label for="pay-transaction-id">Transaction Reference ID (UTR / Txn ID)</label>
+                    <input type="text" id="pay-transaction-id" required placeholder="Enter 12-digit UTR reference ID" minlength="6" maxlength="24">
+                  </div>
+                  
+                  <div class="form-group">
+                    <label>Payment Receipt Screenshot</label>
+                    
+                    <div class="file-uploader-frame" id="file-drop-zone">
+                      <input type="file" id="pay-screenshot" accept="image/*" class="uploader-hidden-input">
+                      
+                      <!-- Default upload instruction state -->
+                      <div class="uploader-prompt" id="upload-zone-content-default">
+                        <i data-lucide="upload-cloud"></i>
+                        <p class="mt-8 font-space text-uppercase tracking-wider">Drag Screenshot Here</p>
+                        <p class="text-xs text-dim mt-4">or click to browse local files (under 5MB)</p>
+                      </div>
+
+                      <!-- Selected preview state -->
+                      <div class="uploader-preview" id="upload-zone-preview-pane" style="display: none;">
+                        <img src="" alt="Thumbnail" id="upload-image-thumbnail" class="uploader-thumb">
+                        <div class="uploader-meta-box">
+                          <span class="filename" id="upload-filename-text">receipt.jpg</span>
+                          <button type="button" class="btn btn-ghost btn-xs mt-8" id="btn-replace-upload">Replace Image</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <button type="submit" class="btn btn-primary btn-block mt-32" id="btn-submit-payment" disabled>
+                    I Have Completed Payment <i data-lucide="check" class="w-14"></i>
+                    <span class="btn-underline"></span>
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-container">
+        <div class="footer-col-masthead">
+          <h3 class="footer-masthead-title">CodeForge</h3>
+          <p class="footer-masthead-sub">Baba Saheb Naik College of Engineering</p>
+          <p class="footer-masthead-loc">Pusad, Yavatmal</p>
+          <p class="footer-about-text mt-16">Annual Hackathon pushing the boundaries of software engineering, embedded logic, and design craftsmanship.</p>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html">Participant Gate</a></li>
+            <li><a href="admin-login.html">Admin Gate</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-title">Important Links</h4>
+          <ul class="footer-links">
+            <li><a href="#">About CodeForge</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+          </ul>
+        </div>
+        <div class="footer-col-organizers">
+          <h4 class="footer-col-title">Event Organizers</h4>
+          <ul class="footer-organizer-list" id="footer-organizers-list">
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-container bottom-container">
+        <span class="footer-copyright">&copy; 2026 Baba Saheb Naik College of Engineering, Pusad. All Rights Reserved.</span>
+        <span class="footer-signature font-mono">POWERED BY CODEFORGE SYSTEM & SARTHAK UBALE</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/db.js"></script>
+  <script src="js/payment.js"></script>
+</body>
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Configuration | CodeForge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;1,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-container">
+      <div class="header-left">
+        <div class="institute-logo-placeholder">
+          <img id="header-college-logo" src="" alt="" style="display: none;">
+          <img class="header-logo-anvil" id="logo-icon-fallback" src="img/anvil_logo.png" alt="Anvil Logo">
+        </div>
+        <div class="header-branding">
+          <h1 class="logo-wordmark"><a href="index.html" style="border:none;">Code<span class="logo-accent">Forge</span></a></h1>
+          <div class="institute-name">Baba Saheb Naik College of Engineering, Pusad</div>
+        </div>
+      </div>
+      <div class="header-right">
+        <div id="user-profile-menu" class="profile-menu" style="display: none;">
+          <div class="profile-badge" id="profile-badge-text">A</div>
+          <span class="profile-email" id="profile-email-text">admin@codeforge.org</span>
+          <button class="btn btn-ghost btn-sm" id="btn-logout">
+            <i data-lucide="log-out"></i>
+            <span>Logout</span>
+            <span class="btn-underline"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+      <section id="view-admin-settings" class="app-view active">
+        <div class="admin-header-row mb-24">
+          <div>
+            <h2 class="dashboard-title text-uppercase tracking-tighter">Configuration</h2>
+            <p class="admin-subtitle">Customize hackathon options, payment details, and branding</p>
+          </div>
+          <div>
+            <a href="admin-dashboard.html" class="btn btn-secondary btn-sm">
+              <i data-lucide="arrow-left" class="w-14"></i> <span>Back to Dashboard</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="settings-grid mb-48">
+          <!-- Column 1: Event Config -->
+          <div class="settings-col">
+            <form id="event-config-form" class="form-grid">
+              <div class="card">
+                <div class="card-body">
+                  <h3 class="settings-card-title"><i data-lucide="settings-2"></i> Event Parameters</h3>
+                  
+                  <div class="form-group mt-16">
+                    <label for="settings-event-name">Event Name</label>
+                    <input type="text" id="settings-event-name" required>
+                  </div>
+                  
+                  <div class="form-row-2 mt-16">
+                    <div class="form-group">
+                      <label for="settings-fee">Registration Fee (₹)</label>
+                      <input type="number" id="settings-fee" required step="1">
+                    </div>
+                    <div class="form-group">
+                      <label for="settings-max-teams">Max Teams Limit</label>
+                      <input type="number" id="settings-max-teams" required>
+                    </div>
+                  </div>
+
+                  <div class="form-group mt-24">
+                    <label>Global Registration Portal Status</label>
+                    <div class="toggle-status-block">
+                      <label class="switch-container">
+                        <input type="checkbox" id="settings-open-toggle">
+                        <span class="slider"></span>
+                      </label>
+                      <span class="toggle-status-text" id="settings-open-status-lbl">OPEN</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card mt-24">
+                <div class="card-body">
+                  <h3 class="settings-card-title"><i data-lucide="qr-code"></i> UPI & Payments</h3>
+                  
+                  <div class="form-group mt-16">
+                    <label for="settings-upi-id">UPI ID (VPA)</label>
+                    <input type="text" id="settings-upi-id" required>
+                  </div>
+                  
+                  <div class="form-group mt-16">
+                    <label>Upload UPI QR Code Image</label>
+                    <div class="settings-file-row">
+                      <img src="" id="settings-qr-preview" alt="QR Preview" class="settings-thumb" style="display: none;">
+                      <div class="settings-file-uploader">
+                        <input type="file" id="settings-qr-file" accept="image/*">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Community & Announcements Card -->
+              <div class="card mt-24">
+                <div class="card-body">
+                  <h3 class="settings-card-title"><i data-lucide="megaphone"></i> Community & Announcements</h3>
+                  
+                  <div class="form-group mt-16">
+                    <label for="settings-whatsapp-link">Official WhatsApp Group Invite Link</label>
+                    <input type="url" id="settings-whatsapp-link" placeholder="https://chat.whatsapp.com/...">
+                  </div>
+
+                  <div class="form-group mt-16">
+                    <label for="settings-brochure-link">Brochure / Rulebook Download Link (Google Drive / PDF)</label>
+                    <input type="url" id="settings-brochure-link" placeholder="https://drive.google.com/... or direct PDF link">
+                  </div>
+
+                  <div class="form-group mt-16">
+                    <label>Live Header Announcement Banner</label>
+                    <div class="toggle-status-block mb-12">
+                      <label class="switch-container">
+                        <input type="checkbox" id="settings-announcement-toggle">
+                        <span class="slider"></span>
+                      </label>
+                      <span class="toggle-status-text" id="settings-announcement-status-lbl">DISABLED</span>
+                    </div>
+                    <input type="text" id="settings-announcement-text" placeholder="e.g. 📢 Registrations closing soon! Venue: CSE Dept Hall.">
+                  </div>
+                </div>
+              </div>
+              
+              <button type="submit" class="btn btn-primary btn-block mt-24">
+                Save Settings Configuration <span class="btn-underline"></span>
+              </button>
+            </form>
+          </div>
+
+          <!-- Column 2: Logo and Organizer Contacts -->
+          <div class="settings-col">
+            <form id="branding-organizer-form" class="form-grid">
+              <div class="card">
+                <div class="card-body">
+                  <h3 class="settings-card-title"><i data-lucide="image"></i> Institution Branding</h3>
+                  
+                  <div class="form-group mt-16">
+                    <label>College/Institute Logo</label>
+                    <div class="settings-file-row">
+                      <img src="" id="settings-college-logo-preview" alt="College Logo" class="settings-thumb" style="display: none;">
+                      <div class="settings-file-uploader">
+                        <input type="file" id="settings-college-logo-file" accept="image/*">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group mt-16">
+                    <label>Event Logo</label>
+                    <div class="settings-file-row">
+                      <img src="" id="settings-event-logo-preview" alt="Event Logo" class="settings-thumb" style="display: none;">
+                      <div class="settings-file-uploader">
+                        <input type="file" id="settings-event-logo-file" accept="image/*">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card mt-24">
+                <div class="card-body">
+                  <h3 class="settings-card-title"><i data-lucide="phone"></i> Organizer Contact Rows</h3>
+                  <p class="settings-card-desc">Provide names and contact numbers for the footer.</p>
+                  
+                  <div class="organizer-rows-container mt-16" id="organizer-inputs-container">
+                    <div class="organizer-input-row">
+                      <span class="org-row-num">1</span>
+                      <input type="text" class="org-name-in" placeholder="Organizer 1 Name" id="org1-name">
+                      <input type="text" class="org-phone-in" placeholder="Organizer 1 Phone" id="org1-phone">
+                    </div>
+                    <div class="organizer-input-row">
+                      <span class="org-row-num">2</span>
+                      <input type="text" class="org-name-in" placeholder="Organizer 2 Name" id="org2-name">
+                      <input type="text" class="org-phone-in" placeholder="Organizer 2 Phone" id="org2-phone">
+                    </div>
+                    <div class="organizer-input-row">
+                      <span class="org-row-num">3</span>
+                      <input type="text" class="org-name-in" placeholder="Organizer 3 Name" id="org3-name">
+                      <input type="text" class="org-phone-in" placeholder="Organizer 3 Phone" id="org3-phone">
+                    </div>
+                    <div class="organizer-input-row">
+                      <span class="org-row-num">4</span>
+                      <input type="text" class="org-name-in" placeholder="Organizer 4 Name" id="org4-name">
+                      <input type="text" class="org-phone-in" placeholder="Organizer 4 Phone" id="org4-phone">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block mt-24">
+                Save Branding & Contacts <span class="btn-underline"></span>
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Offline Database Backup & Restore -->
+        <div class="card mb-48" style="border: var(--border-width) solid var(--border); background: var(--card); margin-top: 24px;">
+          <div class="card-body">
+            <h3 class="settings-card-title" style="display: flex; align-items: center; gap: 8px; font-size: var(--font-md); font-weight: 700; color: var(--foreground);"><i data-lucide="database"></i> Offline Database Backup & Restore</h3>
+            <p class="settings-card-desc" style="color: var(--muted-foreground); margin-bottom: 20px; font-size: var(--font-xs); line-height: var(--lh-normal);">Download a complete backup of all system databases (teams, users, settings) directly to your PC, or upload a JSON backup file to sync states instantly.</p>
+            
+            <div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: stretch; width: 100%;">
+              <!-- Export Card -->
+              <div style="flex: 1; min-width: 280px; padding: 20px; border: var(--border-width) solid var(--border); background: var(--input); border-radius: 6px; display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                  <h4 style="font-size: var(--font-sm); margin-bottom: 8px; font-weight: 600; color: var(--foreground);">Export Local PC Backup</h4>
+                  <p style="font-size: var(--font-xs); color: var(--muted-foreground); margin-bottom: 20px; line-height: var(--lh-normal);">Saves all participant registrations, accounts, and server configurations into a single JSON file downloaded to your PC.</p>
+                </div>
+                <button type="button" class="btn btn-primary" id="btn-export-backup" style="font-size: var(--font-xs); padding: 8px 16px; width: fit-content; display: inline-flex; align-items: center; gap: 8px;">
+                  <i data-lucide="download" class="w-14"></i> <span>Download JSON Backup</span>
+                </button>
+              </div>
+
+              <!-- Import Card -->
+              <div style="flex: 1; min-width: 280px; padding: 20px; border: var(--border-width) solid var(--border); background: var(--input); border-radius: 6px; display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                  <h4 style="font-size: var(--font-sm); margin-bottom: 8px; font-weight: 600; color: var(--foreground);">Import Local PC Backup</h4>
+                  <p style="font-size: var(--font-xs); color: var(--muted-foreground); margin-bottom: 20px; line-height: var(--lh-normal);">Upload a previously saved `.json` backup file to overwrite your current browser data. This syncs registrations instantly.</p>
+                </div>
+                
+                <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+                  <label for="input-import-backup" class="btn btn-secondary" style="font-size: var(--font-xs); padding: 8px 16px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; margin: 0;">
+                    <i data-lucide="upload" class="w-14"></i> <span>Select JSON File</span>
+                  </label>
+                  <input type="file" id="input-import-backup" accept=".json" style="display: none;">
+                  <span id="lbl-backup-filename" style="font-size: var(--font-xs); color: var(--muted-foreground);">No file chosen</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-container">
+        <div class="footer-col-masthead">
+          <h3 class="footer-masthead-title">CodeForge</h3>
+          <p class="footer-masthead-sub">Baba Saheb Naik College of Engineering</p>
+          <p class="footer-masthead-loc">Pusad, Yavatmal</p>
+          <p class="footer-about-text mt-16">Annual Hackathon pushing the boundaries of software engineering, embedded logic, and design craftsmanship.</p>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html">Participant Gate</a></li>
+            <li><a href="admin-login.html">Admin Gate</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-title">Important Links</h4>
+          <ul class="footer-links">
+            <li><a href="#">About CodeForge</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+          </ul>
+        </div>
+        <div class="footer-col-organizers">
+          <h4 class="footer-col-title">Event Organizers</h4>
+          <ul class="footer-organizer-list" id="footer-organizers-list">
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-container bottom-container">
+        <span class="footer-copyright">&copy; 2026 Baba Saheb Naik College of Engineering, Pusad. All Rights Reserved.</span>
+        <span class="footer-signature font-mono">POWERED BY CODEFORGE SYSTEM & SARTHAK UBALE</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/db.js"></script>
+  <script src="js/admin-settings.js"></script>
+</body>
+</html>
