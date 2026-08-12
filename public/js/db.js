@@ -23,9 +23,9 @@ const DB_KEYS = {
 const DEFAULT_SETTINGS = {
   id: 1,
   event_name: 'CodeForge 2026',
-  registration_fee: 500.0,
+  registration_fee: 400.0,
   registration_open: 1,
-  max_teams: 100,
+  max_teams: 40,
   upi_id: 'codeforge@upi',
   organizer1_name: 'Krishna Anantwar',
   organizer1_phone: '+91 84463 34754',
@@ -35,10 +35,11 @@ const DEFAULT_SETTINGS = {
   organizer3_phone: '+91 90224 64865',
   organizer4_name: 'Sarthak Ubale',
   organizer4_phone: '+91 94221 20054',
-  whatsapp_group_link: 'https://chat.whatsapp.com/CodeForge2026',
+  whatsapp_group_link: 'https://chat.whatsapp.com/EXKse2ergW1GGqwP6yzrMN?s=sh&p=a&ilr=4',
+  instagram_link: 'https://www.instagram.com/codeforge1.0?igsh=NWptZmF2cG0xMThy',
   announcement_text: '🚀 Welcome to CodeForge 2026! Registrations are now open.',
   announcement_active: 0,
-  brochure_url: 'img/CodeForge26_STUDENT_HANDBOOK_final.pdf.pdf',
+  brochure_url: 'img/CodeForge26_STUDENT HANDBOOK.pdf.pdf',
   college_logo_path: '',
   qr_code_path: ''
 };
@@ -74,6 +75,21 @@ function initClientDatabase() {
   } else {
     // Ensure all keys exist in settings
     const current = getDB(DB_KEYS.SETTINGS, {});
+    if (current.registration_fee === 500) {
+      current.registration_fee = 400.0;
+    }
+    if (current.max_teams === 100) {
+      current.max_teams = 40;
+    }
+    if (current.brochure_url && current.brochure_url.includes('STUDENT_HANDBOOK_final')) {
+      current.brochure_url = 'img/CodeForge26_STUDENT HANDBOOK.pdf.pdf';
+    }
+    if (!current.whatsapp_group_link || current.whatsapp_group_link.includes('CodeForge2026')) {
+      current.whatsapp_group_link = 'https://chat.whatsapp.com/EXKse2ergW1GGqwP6yzrMN?s=sh&p=a&ilr=4';
+    }
+    if (!current.instagram_link) {
+      current.instagram_link = 'https://www.instagram.com/codeforge1.0?igsh=NWptZmF2cG0xMThy';
+    }
     const merged = { ...DEFAULT_SETTINGS, ...current };
     setDB(DB_KEYS.SETTINGS, merged);
   }
@@ -781,7 +797,7 @@ function applyGlobalBranding() {
   // Update brochure download link if present
   const brochureBtn = document.getElementById('btn-download-brochure');
   if (brochureBtn) {
-    const defaultBrochure = 'img/CodeForge26_STUDENT_HANDBOOK_final.pdf.pdf';
+    const defaultBrochure = 'img/CodeForge26_STUDENT HANDBOOK.pdf.pdf';
     const activeUrl = (state.settings && state.settings.brochure_url && state.settings.brochure_url.trim()) ? state.settings.brochure_url.trim() : defaultBrochure;
     brochureBtn.href = activeUrl;
     brochureBtn.onclick = null;
@@ -799,8 +815,9 @@ function updateHeaderNavigation() {
     if (!toggle) {
       toggle = document.createElement('button');
       toggle.id = 'theme-toggle-btn';
-      toggle.className = 'btn btn-ghost btn-sm';
-      toggle.style.cssText = 'margin-right:12px;border-radius:50%;width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;padding:0;border:var(--border-width) solid var(--border);';
+      toggle.className = 'header-social-btn';
+      toggle.setAttribute('title', 'Toggle Theme');
+      toggle.setAttribute('aria-label', 'Toggle Theme');
       const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
       toggle.innerHTML = `<i data-lucide="${currentTheme === 'dark' ? 'sun' : 'moon'}" class="w-14"></i>`;
       toggle.addEventListener('click', () => {
@@ -812,6 +829,40 @@ function updateHeaderNavigation() {
       });
       rightCol.insertBefore(toggle, rightCol.firstChild);
       if (typeof lucide !== 'undefined') lucide.createIcons();
+    }
+
+    const waLink = (state.settings && state.settings.whatsapp_group_link) || 'https://chat.whatsapp.com/EXKse2ergW1GGqwP6yzrMN?s=sh&p=a&ilr=4';
+    let waBtn = document.getElementById('header-whatsapp-btn');
+    if (!waBtn) {
+      waBtn = document.createElement('a');
+      waBtn.id = 'header-whatsapp-btn';
+      waBtn.className = 'header-social-btn whatsapp-btn';
+      waBtn.href = waLink;
+      waBtn.target = '_blank';
+      waBtn.rel = 'noopener noreferrer';
+      waBtn.setAttribute('title', 'Join WhatsApp Group');
+      waBtn.setAttribute('aria-label', 'WhatsApp Group');
+      waBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>`;
+      toggle.after(waBtn);
+    } else {
+      waBtn.href = waLink;
+    }
+
+    const igLink = (state.settings && state.settings.instagram_link) || 'https://www.instagram.com/codeforge1.0?igsh=NWptZmF2cG0xMThy';
+    let igBtn = document.getElementById('header-instagram-btn');
+    if (!igBtn) {
+      igBtn = document.createElement('a');
+      igBtn.id = 'header-instagram-btn';
+      igBtn.className = 'header-social-btn instagram-btn';
+      igBtn.href = igLink;
+      igBtn.target = '_blank';
+      igBtn.rel = 'noopener noreferrer';
+      igBtn.setAttribute('title', 'Follow on Instagram');
+      igBtn.setAttribute('aria-label', 'Instagram Profile');
+      igBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>`;
+      waBtn.after(igBtn);
+    } else {
+      igBtn.href = igLink;
     }
   }
 

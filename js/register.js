@@ -225,9 +225,10 @@ function initStepperUI() {
   // Pre-fill dynamically loaded fee in Quick Guide
   try {
     const settings = (typeof getDB === 'function' ? getDB('cf_settings') : {}) || {};
-    if (settings.fees) {
+    const feeVal = settings.registration_fee || settings.fees;
+    if (feeVal) {
       const feeEl = document.getElementById('reg-guide-fee');
-      if (feeEl) feeEl.textContent = `₹${settings.fees} / Team`;
+      if (feeEl) feeEl.textContent = `₹${feeVal} / Team`;
     }
   } catch (e) {}
 

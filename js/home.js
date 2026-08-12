@@ -134,6 +134,14 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (fallback) fallback.style.display = 'none';
       }
     }
+
+    /* Update max teams stats and CTA slots if configured */
+    if (settings && settings.max_teams) {
+      const hsTeams = document.getElementById('hs-teams');
+      if (hsTeams) hsTeams.textContent = `${settings.max_teams}+`;
+      const ctaSlots = document.getElementById('cta-slots-left');
+      if (ctaSlots) ctaSlots.textContent = `${settings.max_teams}`;
+    }
   } catch (_) {}
 
   /* Animate stats counter on scroll */

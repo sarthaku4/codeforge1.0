@@ -14,9 +14,12 @@ function renderAdminSettings() {
 
   document.getElementById('settings-upi-id').value = config.upi_id || '';
 
-  // WhatsApp and announcements
+  // WhatsApp, Instagram, and announcements
   const whatsappEl = document.getElementById('settings-whatsapp-link');
   if (whatsappEl) whatsappEl.value = config.whatsapp_group_link || '';
+
+  const instagramEl = document.getElementById('settings-instagram-link');
+  if (instagramEl) instagramEl.value = config.instagram_link || '';
 
   const brochureEl = document.getElementById('settings-brochure-link');
   if (brochureEl) brochureEl.value = config.brochure_url || '';
@@ -123,6 +126,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     formData.append('upi_id',            document.getElementById('settings-upi-id').value.trim());
 
     formData.append('whatsapp_group_link', document.getElementById('settings-whatsapp-link')?.value.trim() || '');
+    formData.append('instagram_link',      document.getElementById('settings-instagram-link')?.value.trim() || '');
     formData.append('brochure_url',        document.getElementById('settings-brochure-link')?.value.trim() || '');
     formData.append('announcement_active', document.getElementById('settings-announcement-toggle')?.checked ? '1' : '0');
     formData.append('announcement_text',   document.getElementById('settings-announcement-text')?.value.trim() || '');
