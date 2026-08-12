@@ -2766,32 +2766,124 @@ input:checked + .slider:before {
   }
   
   .header-container {
+    display: flex;
     flex-wrap: wrap;
-    padding: 10px 16px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    gap: 8px 0;
     min-height: auto;
+    width: 100%;
   }
+
   .header-left {
-    max-width: 60%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: calc(100% - 170px);
   }
+
+  .institute-logo-placeholder {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+  }
+
+  .header-logo-anvil {
+    width: 18px;
+    height: 18px;
+  }
+
+  .header-branding {
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .header-branding .logo-wordmark {
+    font-size: 1.1rem;
+    white-space: nowrap;
+  }
+
+  .header-branding .institute-name {
+    font-size: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    max-width: 100%;
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+    margin-left: auto;
+  }
+
+  .header #theme-toggle-btn,
+  .header .header-social-btn {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+  }
+
+  .header .btn-primary.btn-sm,
+  .header .header-right .btn {
+    padding: 6px 10px !important;
+    font-size: 11px !important;
+    gap: 4px !important;
+    white-space: nowrap;
+  }
+
   .header-center {
     position: static;
     transform: none;
     flex: 0 0 100%;
     order: 3;
-    justify-content: center;
+    width: 100%;
+    margin-top: 4px;
+    padding-top: 6px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
   }
+
   .header-nav {
     width: 100%;
-    justify-content: center;
-    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     gap: 4px;
   }
+
   .header-nav .nav-link {
-    padding: 5px 10px;
-    font-size: 10px;
+    flex: 1 1 0;
+    text-align: center;
+    padding: 6px 4px;
+    font-size: 11px;
+    border-radius: 4px;
+    white-space: nowrap;
   }
-  .mobile-menu-toggle {
-    display: block;
+
+  .features-grid[style*="grid-template-columns"],
+  .features-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .landing-section {
+    padding: 48px 0 !important;
+  }
+
+  .section-container,
+  .container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
   }
 }
 
@@ -2820,6 +2912,16 @@ input:checked + .slider:before {
   .team-summary-block {
     grid-template-columns: 1fr;
     gap: 12px;
+  }
+
+  .header-branding .institute-name {
+    display: none;
+  }
+
+  .header .btn-primary.btn-sm,
+  .header .header-right .btn {
+    padding: 6px 8px !important;
+    font-size: 10px !important;
   }
 }
 
