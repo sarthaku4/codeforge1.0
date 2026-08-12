@@ -38,7 +38,7 @@ const DEFAULT_SETTINGS = {
   whatsapp_group_link: 'https://chat.whatsapp.com/CodeForge2026',
   announcement_text: '🚀 Welcome to CodeForge 2026! Registrations are now open.',
   announcement_active: 0,
-  brochure_url: '',
+  brochure_url: 'img/CodeForge26_STUDENT_HANDBOOK_final.pdf.pdf',
   college_logo_path: '',
   qr_code_path: ''
 };
@@ -355,7 +355,7 @@ async function apiFetch(url, options = {}) {
     team.project_title = (body.project_title || '').trim();
     team.project_theme = (body.project_theme || '').trim();
     team.github_url    = (body.github_url || '').trim();
-    demo_url           = (body.demo_url || '').trim();
+    team.demo_url      = (body.demo_url || '').trim();
     team.project_desc  = (body.project_desc || '').trim();
     setDB(DB_KEYS.TEAMS, teams);
 
@@ -781,16 +781,10 @@ function applyGlobalBranding() {
   // Update brochure download link if present
   const brochureBtn = document.getElementById('btn-download-brochure');
   if (brochureBtn) {
-    if (state.settings.brochure_url && state.settings.brochure_url.trim()) {
-      brochureBtn.href = state.settings.brochure_url.trim();
-      brochureBtn.removeAttribute('onclick');
-    } else {
-      brochureBtn.href = '#';
-      brochureBtn.onclick = (e) => {
-        e.preventDefault();
-        showToast('Brochure download link will be available soon!', 'info');
-      };
-    }
+    const defaultBrochure = 'img/CodeForge26_STUDENT_HANDBOOK_final.pdf.pdf';
+    const activeUrl = (state.settings && state.settings.brochure_url && state.settings.brochure_url.trim()) ? state.settings.brochure_url.trim() : defaultBrochure;
+    brochureBtn.href = activeUrl;
+    brochureBtn.onclick = null;
   }
 }
 
