@@ -146,10 +146,16 @@
   font-family: 'Inter Tight', sans-serif;
   font-weight: 900;
   font-size: clamp(3rem, 9vw, 7.5rem);
-  line-height: .95;
+  line-height: 1.1;
   letter-spacing: -.04em;
   margin-bottom: 32px;
   color: #FAFAFA;
+}
+
+.cf-hero-title-line {
+  display: block;
+  padding-bottom: 0.1em;
+  margin-bottom: -0.1em;
 }
 
 .cf-hero-title-accent {
