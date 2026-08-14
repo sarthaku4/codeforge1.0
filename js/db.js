@@ -890,7 +890,7 @@ function enforcePageGuards() {
   const user = state.user;
 
   // Never redirect away from public information pages
-  const publicPages = ['index.html', '', 'about.html', 'sponsors.html', 'contact.html', 'closed.html', 'terms.html', 'privacy.html'];
+  const publicPages = ['index.html', '', 'about.html', 'college.html', 'about-college.html', 'institute.html', 'sponsors.html', 'contact.html', 'closed.html', 'terms.html', 'privacy.html'];
   if (publicPages.includes(page)) {
     return;
   }

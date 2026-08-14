@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About College & Institute | Babasaheb Naik College of Engineering, Pusad — CodeForge'26</title>
+  <meta name="description" content="Discover Babasaheb Naik College of Engineering (BNCOE), Pusad — established in 1983 under JSPM. Learn about our NAAC Grade 'A' accreditation, 30-acre campus, academic departments, research, and world-class infrastructure.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;1,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- HEADER & NAVIGATION -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <header class="header">
+    <div class="header-container">
+      <div class="header-left">
+        <div class="institute-logo-placeholder">
+          <img id="header-college-logo" src="" alt="" style="display: none;">
+          <img class="header-logo-anvil" id="logo-icon-fallback" src="img/anvil_logo.png" alt="Anvil Logo">
+        </div>
+        <div class="header-branding">
+          <h1 class="logo-wordmark"><a href="index.html" style="border:none;">Code<span class="logo-accent">Forge</span></a></h1>
+          <div class="institute-name">Baba Saheb Naik College of Engineering, Pusad</div>
+        </div>
+      </div>
+      <div class="header-center">
+        <nav class="header-nav">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link">About Event</a>
+          <a href="college.html" class="nav-link active">About College</a>
+          <a href="sponsors.html" class="nav-link">Sponsors</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+      </div>
+      <div class="header-right">
+        <button id="theme-toggle-btn" class="header-social-btn" title="Toggle Theme" aria-label="Toggle Theme">
+          <i data-lucide="sun" class="w-14"></i>
+        </button>
+        <a id="header-whatsapp-btn" class="header-social-btn whatsapp-btn" href="https://chat.whatsapp.com/EXKse2ergW1GGqwP6yzrMN?s=sh&p=a&ilr=4" target="_blank" rel="noopener noreferrer" title="Join WhatsApp Group" aria-label="WhatsApp Group">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        </a>
+        <a id="header-instagram-btn" class="header-social-btn instagram-btn" href="https://www.instagram.com/codeforge1.0?igsh=NWptZmF2cG0xMThy" target="_blank" rel="noopener noreferrer" title="Follow on Instagram" aria-label="Instagram Profile">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+        </a>
+        <div id="user-profile-menu" class="profile-menu" style="display: none;">
+          <div class="profile-badge" id="profile-badge-text">U</div>
+          <span class="profile-email" id="profile-email-text">user@email.com</span>
+          <button class="btn btn-ghost btn-sm" id="btn-logout">
+            <i data-lucide="log-out"></i>
+            <span>Logout</span>
+            <span class="btn-underline"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content" style="position: relative; z-index: 2;">
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- HERO / BANNER SECTION -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="landing-section" style="padding-top: 80px; padding-bottom: 48px; border-top: none;">
+      <div class="section-container">
+        <div class="section-header" style="margin-bottom: 32px;">
+          <p style="font-size: var(--font-xs); text-transform: uppercase; letter-spacing: var(--track-widest); color: var(--accent); font-weight: 700; margin-bottom: 12px;">
+            <i data-lucide="award" style="width: 14px; height: 14px; display: inline-block; vertical-align: middle; margin-right: 4px;"></i>
+            ESTD. 1983 · 40+ YEARS OF TECHNICAL EXCELLENCE · NAAC &amp; NBA ACCREDITED
+          </p>
+          <h2 class="page-hero-title" style="max-width: 860px; margin: 0 auto 24px;">
+            <span class="page-hero-title-line">Babasaheb Naik</span>
+            <span class="page-hero-title-line page-hero-title-accent">College of Engineering</span>
+          </h2>
+          <p style="font-family: 'Inter Tight', sans-serif; font-size: var(--font-lg); color: var(--foreground); font-weight: 600; margin-top: 8px;">
+            Janata Shikshan Prasarak Mandal, Pusad — 445 215, Dist. Yavatmal (M.S.)
+          </p>
+          <p class="section-subtitle" style="margin-top: 16px; max-width: 720px;">
+            A premier self-financed engineering institution in Maharashtra, dedicated to fostering innovation, academic rigor, cutting-edge research, and rural technological empowerment.
+          </p>
+          <div style="display: flex; gap: 14px; justify-content: center; margin-top: 28px; flex-wrap: wrap;">
+            <a href="#departments" class="btn btn-primary">
+              <span>Academic Departments</span> <i data-lucide="arrow-down" class="w-14"></i>
+              <span class="btn-underline"></span>
+            </a>
+            <a href="#facilities" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 8px;">
+              <i data-lucide="building" class="w-14"></i> <span>Campus Facilities</span>
+            </a>
+            <a href="about.html" class="btn btn-ghost" style="display: inline-flex; align-items: center; gap: 8px; border: var(--border-width) solid var(--border);">
+              <i data-lucide="zap" class="w-14" style="color: var(--accent);"></i> <span>CodeForge'26 Hackathon</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- KEY STATS COUNTERS -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="landing-section" style="padding-top: 20px; padding-bottom: 48px;">
+      <div class="section-container">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px;">
+          <div class="card header-glow-card" style="text-align: center;">
+            <div class="card-body" style="padding: 24px 16px;">
+              <div style="font-family: 'Inter Tight', sans-serif; font-size: var(--font-2xl); font-weight: 800; color: var(--accent);">1983</div>
+              <div style="font-size: var(--font-xs); text-transform: uppercase; letter-spacing: var(--track-wider); color: var(--muted-foreground); margin-top: 4px;">Established Year</div>
+            </div>
+          </div>
+          <div class="card header-glow-card" style="text-align: center;">
+            <div class="card-body" style="padding: 24px 16px;">
+              <div style="font-family: 'Inter Tight', sans-serif; font-size: var(--font-2xl); font-weight: 800; color: var(--foreground);">Grade 'A'</div>
+              <div style="font-size: var(--font-xs); text-transform: uppercase; letter-spacing: var(--track-wider); color: var(--muted-foreground); margin-top: 4px;">Govt. &amp; NAAC Rated</div>
+            </div>
+          </div>
+          <div class="card header-glow-card" style="text-align: center;">
+            <div class="card-body" style="padding: 24px 16px;">
+              <div style="font-family: 'Inter Tight', sans-serif; font-size: var(--font-2xl); font-weight: 800; color: var(--accent);">30+</div>
+              <div style="font-size: var(--font-xs); text-transform: uppercase; letter-spacing: var(--track-wider); color: var(--muted-foreground); margin-top: 4px;">Acres Campus</div>
+            </div>
+          </div>
+          <div class="card header-glow-card" style="text-align: center;">
+            <div class="card-body" style="padding: 24px 16px;">
+              <div style="font-family: 'Inter Tight', sans-serif; font-size: var(--font-2xl); font-weight: 800; color: var(--foreground);">1,690+</div>
+              <div style="font-size: var(--font-xs); text-transform: uppercase; letter-spacing: var(--track-wider); color: var(--muted-foreground); margin-top: 4px;">Active Students</div>
+            </div>
+          </div>
+          <div class="card header-glow-card" style="text-align: center;">
+            <div class="card-body" style="padding: 24px 16px;">
+              <div style="font-family: 'Inter Tight', sans-serif; font-size: var(--font-2xl); font-weight: 800; color: var(--accent);">180+</div>
+              <div style="font-size: var(--font-xs); text-transform: uppercase; letter-spacing: var(--track-wider); color: var(--muted-foreground); margin-top: 4px;">Faculty &amp; Staff</div>
+            </div>
+          </div>
+          <div class="card header-glow-card" style="text-align: center;">
+            <div class="card-body" style="padding: 24px 16px;">
+              <div style="font-family: 'Inter Tight', sans-serif; font-size: var(--font-2xl); font-weight: 800; color: var(--foreground);">15,000+</div>
+              <div style="font-size: var(--font-xs); text-transform: uppercase; letter-spacing: var(--track-wider); color: var(--muted-foreground); margin-top: 4px;">Global Alumni</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- ABOUT THE INSTITUTE & JSPM HERITAGE -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="landing-section" id="overview">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title"><i data-lucide="landmark" class="icon-amber mr-8"></i> The Institution &amp; Heritage</h2>
+          <p class="section-subtitle">A historic legacy rooted in educational empowerment and technological leadership</p>
+        </div>
+
+        <div class="features-grid" style="grid-template-columns: 1.2fr 0.8fr;">
+          <div class="card header-glow-card">
+            <div class="card-body">
+              <h3 class="card-title text-uppercase mb-16" style="font-size: var(--font-base);"><i data-lucide="book-marked" class="icon-amber"></i> Janata Shikshan Prasarak Mandal (JSPM)</h3>
+              <p class="card-desc" style="margin-bottom: 16px; font-size: var(--font-sm);">
+                Babasaheb Naik College of Engineering (BNCOE), Pusad was founded in 1983 under the visionary aegis of <strong>Janata Shikshan Prasarak Mandal (JSPM)</strong>. Established by the towering visionary and former Chief Minister of Maharashtra, <strong>Late Shri Vasantraoji Naik</strong>, and former Minister <strong>Late Shri Babasaheb Naik</strong>, the trust was envisioned to bring world-class engineering education to the heart of rural Maharashtra.
+              </p>
+              <p class="card-desc" style="margin-bottom: 0; font-size: var(--font-sm);">
+                Over four decades, the college has transformed into one of Central India's premier technical institutions, producing top-notch engineers, innovators, startup founders, and industry leaders across Fortune 500 companies globally.
+              </p>
+            </div>
+          </div>
+
+          <div class="card header-glow-card">
+            <div class="card-body">
+              <h3 class="card-title text-uppercase mb-16" style="font-size: var(--font-base);"><i data-lucide="shield-check" class="icon-amber"></i> Approvals &amp; Accreditations</h3>
+              <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: var(--font-xs); color: var(--muted-foreground);">
+                <li style="display: flex; align-items: flex-start; gap: 10px;">
+                  <i data-lucide="check-circle-2" style="width: 16px; height: 16px; color: var(--accent); flex-shrink: 0; margin-top: 1px;"></i>
+                  <span><strong>AICTE Approved:</strong> Recognized by All India Council for Technical Education, New Delhi.</span>
+                </li>
+                <li style="display: flex; align-items: flex-start; gap: 10px;">
+                  <i data-lucide="check-circle-2" style="width: 16px; height: 16px; color: var(--accent); flex-shrink: 0; margin-top: 1px;"></i>
+                  <span><strong>SGBAU Affiliated:</strong> Permanently affiliated with Sant Gadge Baba Amravati University.</span>
+                </li>
+                <li style="display: flex; align-items: flex-start; gap: 10px;">
+                  <i data-lucide="check-circle-2" style="width: 16px; height: 16px; color: var(--accent); flex-shrink: 0; margin-top: 1px;"></i>
+                  <span><strong>NBA &amp; NAAC Accredited:</strong> High accreditation credentials with Grade "A" status by the Govt. of Maharashtra.</span>
+                </li>
+                <li style="display: flex; align-items: flex-start; gap: 10px;">
+                  <i data-lucide="check-circle-2" style="width: 16px; height: 16px; color: var(--accent); flex-shrink: 0; margin-top: 1px;"></i>
+                  <span><strong>PhD Research Centers:</strong> Recognized research centers in Computer Science, Civil, and Mechanical Engineering.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- VISION, MISSION & VALUES -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="landing-section">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title"><i data-lucide="compass" class="icon-amber mr-8"></i> Vision, Mission &amp; Values</h2>
+          <p class="section-subtitle">Guiding principles shaping future-ready engineers with ethics and impact</p>
+        </div>
+
+        <div class="features-grid" style="grid-template-columns: repeat(3, 1fr);">
+          <!-- Vision -->
+          <div class="card header-glow-card">
+            <div class="card-body">
+              <div style="width: 48px; height: 48px; border-radius: 50%; background: rgba(255,122,26,0.1); border: var(--border-width) solid var(--accent); display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
+                <i data-lucide="eye" style="width: 20px; height: 20px; color: var(--accent);"></i>
+              </div>
+              <h3 class="card-title text-uppercase mb-12" style="font-size: var(--font-sm);">Our Vision</h3>
+              <p class="card-desc" style="font-size: var(--font-xs); line-height: 1.75;">
+                To emerge as an institute of global repute in technical education and research, fostering ethically strong, socially conscious, and professionally competent engineers capable of addressing complex global challenges.
+              </p>
+            </div>
+          </div>
+
+          <!-- Mission -->
+          <div class="card header-glow-card">
+            <div class="card-body">
+              <div style="width: 48px; height: 48px; border-radius: 50%; background: rgba(255,122,26,0.1); border: var(--border-width) solid var(--accent); display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
+                <i data-lucide="target" style="width: 20px; height: 20px; color: var(--accent);"></i>
+              </div>
+              <h3 class="card-title text-uppercase mb-12" style="font-size: var(--font-sm);">Our Mission</h3>
+              <p class="card-desc" style="font-size: var(--font-xs); line-height: 1.75;">
+                To impart rigorous outcome-based technical education, cultivate an active culture of research and entrepreneurial innovation, establish robust industry-academia collaboration, and empower rural youth through accessible technology.
+              </p>
+            </div>
+          </div>
+
+          <!-- Core Values -->
+          <div class="card header-glow-card">
+            <div class="card-body">
+              <div style="width: 48px; height: 48px; border-radius: 50%; background: rgba(255,122,26,0.1); border: var(--border-width) solid var(--accent); display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
+                <i data-lucide="sparkles" style="width: 20px; height: 20px; color: var(--accent);"></i>
+              </div>
+              <h3 class="card-title text-uppercase mb-12" style="font-size: var(--font-sm);">Core Values</h3>
+              <p class="card-desc" style="font-size: var(--font-xs); line-height: 1.75;">
+                • Academic &amp; Technical Integrity<br>
+                • Innovation &amp; Creative Problem Solving<br>
+                • Inclusivity &amp; Student-Centric Growth<br>
+                • Social Responsibility &amp; Sustainable Development<br>
+                • Lifelong Learning &amp; Professional Ethics
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- ACADEMIC DEPARTMENTS & INTAKE -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="landing-section" id="departments">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title"><i data-lucide="layers" class="icon-amber mr-8"></i> Academic Departments</h2>
+          <p class="section-subtitle">Comprehensive Undergraduate, Postgraduate, and Doctorate engineering programs</p>
+        </div>
+
+        <div class="features-grid" style="grid-template-columns: repeat(3, 1fr);">
+          
+          <!-- CSE -->
+          <div class="card header-glow-card">
+            <div class="card-body">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+                <span style="font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: var(--track-widest); color: var(--accent); background: rgba(255,122,26,0.1); padding: 4px 8px; border-radius: 4px;">Host Department</span>
+                <span class="font-mono" style="font-size: 12px; color: var(--foreground); font-weight: 700;">Intake: 120</span>
+              </div>
+              <h3 class="card-title text-uppercase mb-8" style="font-size: var(--font-sm);"><i data-lucide="code" class="icon-amber"></i> Computer Science &amp; Engg.</h3>
+              <p class="card-desc" style="font-size: var(--font-xs); line-height: 1.65; margin-bottom: 16px;">
+                The organizer of CodeForge Hackathon. Specializes in Full-Stack Web, AI/ML, Cloud Computing, Distributed Systems, and Cyber Security with ultra-modern computing labs.
+              </p>
+              <div style="font-size: 11px; color: var(--muted-foreground); font-family: 'JetBrains Mono', monospace;">
+                UG (B.E./B.Tech) · PG (M.Tech) · Ph.D.
+              </div>
+            </div>
+          </div>
+
+          <!-- AI & DS -->
+          <div class="card header-glow-card">
+            <div class="card-body">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+                <span style="font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: var(--track-widest); color: var(--verified-green); background: rgba(61,217,160,0.1); padding: 4px 8px; border-radius: 4px;">Emerging Tech</span>
+                <span class="font-mono" style="font-size: 12px; color: var(--foreground); font-weight: 700;">Intake: 60</span>
+              </div>
+              <h3 class="card-title text-uppercase mb-8" style="font-size: var(--font-sm);"><i data-lucide="brain-circuit" class="icon-amber"></i> AI &amp; Data Science</h3>
+              <p class="card-desc" style="font-size: var(--font-xs); line-height: 1.65; margin-bottom: 16px;">
+                Equips students with cutting-edge skills in Deep Learning, Natural Language Processing, Big Data Analytics, Neural Networks, and Predictive Modeling.
+              </p>
+              <div style="font-size: 11px; color: var(--muted-foreground); font-family: 'JetBrains Mono', monospace;">
+                UG (B.E./B.Tech)
+              </div>
+            </div>
+          </div>
+
+          <!-- Civil Engg -->
+          <div class="card header-glow-card">
+            <div class="card-body">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+                <span style="font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: var(--track-widest); color: var(--muted-foreground); background: rgba(255,255,255,0.05); padding: 4px 8px; border-radius: 4px;">Legacy Branch</span>
+                <span class="font-mono" style="font-size: 12px; color: var(--foreground); font-weight: 700;">Intake: 60</span>
+              </div>
+              <h3 class="card-title text-uppercase mb-8" style="font-size: var(--font-sm);"><i data-lucide="hard-hat" class="icon-amber"></i> Civil Engineering</h3>
+              <p class="card-desc" style="font-size: var(--font-xs); line-height: 1.65; margin-bottom: 16px;">
+                Renowned for structural design, environmental engineering, GIS/Remote Sensing, advanced geotechnical labs, and prominent consultancy projects across Maharashtra.
+              </p>
+              <div style="font-size: 11px; color: var(--muted-foreground); font-family: 'JetBrains Mono', monospace;">
+                UG (B.E./B.Tech) · PG (M.Tech) · Ph.D.
+              </div>
+            </div>
+          </div>
+
+          <!-- Mechanical Engg -->
+          <div class="card header-glow-card">
+            <div class="card-body">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+                <span style="font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: var(--track-widest); color: var(--muted-foreground); background: rgba(255,255,255,0.05); padding: 4px 8px; border-radius: 4px;">Core Engineering</span>
+                <span class="font-mono" style="font-size: 12px; color: var(--foreground); font-weight: 700;">Intake: 60</span>
+              </div>
+              <h3 class="card-title text-uppercase mb-8" style="font-size: var(--font-sm);"><i data-lucide="cog" class="icon-amber"></i> Mechanical Engineering</h3>
+              <p class="card-desc" style="font-size: var(--font-xs); line-height: 1.65; margin-bottom: 16px;">
+                Advanced manufacturing workshops, CNC machinery, Robotics &amp; Automation labs, Thermal Power research, CAD/CAM simulation software, and Formula Student fabrication.
+              </p>
+              <div style="font-size: 11px; color: var(--muted-foreground); font-family: 'JetBrains Mono', monospace;">
+                UG (B.E./B.Tech) · PG (M.Tech) · Ph.D.
+              </div>
+            </div>
+          </div>
+
+          <!-- Electrical Engg -->
+          <div class="card header-glow-card">
+            <div class="card-body">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+                <span style="font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: var(--track-widest); color: var(--muted-foreground); background: rgba(255,255,255,0.05); padding: 4px 8px; border-radius: 4px;">Core Engineering</span>
+                <span class="font-mono" style="font-size: 12px; color: var(--foreground); font-weight: 700;">Intake: 60</span>
+              </div>
+              <h3 class="card-title text-uppercase mb-8" style="font-size: var(--font-sm);"><i data-lucide="zap" class="icon-amber"></i> Electrical Engineering</h3>
+              <p class="card-desc" style="font-size: var(--font-xs); line-height: 1.65; margin-bottom: 16px;">
+                Specializes in Power Systems, Renewable Energy (Solar &amp; Wind), Electric Vehicles (EV), Smart Microgrids, Industrial Automation, and PLC/SCADA control systems.
+              </p>
+              <div style="font-size: 11px; color: var(--muted-foreground); font-family: 'JetBrains Mono', monospace;">
+                UG (B.E./B.Tech) · PG (M.Tech)
+              </div>
+            </div>
+          </div>
+
+          <!-- Electronics & Telecom -->
+          <div class="card header-glow-card">
+            <div class="card-body">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+                <span style="font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: var(--track-widest); color: var(--muted-foreground); background: rgba(255,255,255,0.05); padding: 4px 8px; border-radius: 4px;">Electronics &amp; IoT</span>
+                <span class="font-mono" style="font-size: 12px; color: var(--foreground); font-weight: 700;">Intake: 60</span>
+              </div>
+              <h3 class="card-title text-uppercase mb-8" style="font-size: var(--font-sm);"><i data-lucide="radio-tower" class="icon-amber"></i> Electronics &amp; Telecom</h3>
+              <p class="card-desc" style="font-size: var(--font-xs); line-height: 1.65; margin-bottom: 16px;">
+                Advanced focus on Embedded Systems, Internet of Things (IoT), VLSI Chip Design, Wireless Communication, Signal &amp; Image Processing, and Antenna Engineering.
+              </p>
+              <div style="font-size: 11px; color: var(--muted-foreground); font-family: 'JetBrains Mono', monospace;">
+                UG (B.E./B.Tech) · PG (M.Tech)
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Intake Overview Table -->
+        <div style="margin-top: 36px; border: var(--border-width) solid var(--border); border-radius: var(--radius); overflow: hidden;">
+          <div style="padding: 16px 20px; background: rgba(255,122,26,0.06); border-bottom: var(--border-width) solid var(--border); display: flex; align-items: center; justify-content: space-between;">
+            <h4 style="font-size: var(--font-sm); font-weight: 700; text-transform: uppercase; letter-spacing: var(--track-wider); color: var(--foreground); margin: 0;">
+              <i data-lucide="table" style="width: 16px; height: 16px; display: inline-block; vertical-align: middle; margin-right: 6px; color: var(--accent);"></i>
+              Sanctioned Intake Summary (Academic Year 2026–27)
+            </h4>
+            <span class="font-mono" style="font-size: var(--font-xs); color: var(--accent); font-weight: 700;">DTE Code: 1107</span>
+          </div>
+          <div style="padding: 0; overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse; font-size: var(--font-sm);">
+              <thead>
+                <tr style="border-bottom: var(--border-width) solid var(--border); background: var(--muted);">
+                  <th style="padding: 12px 20px; text-align: left; color: var(--muted-foreground); font-weight: 600; font-size: var(--font-xs); text-transform: uppercase;">Discipline / Branch</th>
+                  <th style="padding: 12px 20px; text-align: center; color: var(--muted-foreground); font-weight: 600; font-size: var(--font-xs); text-transform: uppercase;">Degree Level</th>
+                  <th style="padding: 12px 20px; text-align: center; color: var(--muted-foreground); font-weight: 600; font-size: var(--font-xs); text-transform: uppercase;">Duration</th>
+                  <th style="padding: 12px 20px; text-align: right; color: var(--muted-foreground); font-weight: 600; font-size: var(--font-xs); text-transform: uppercase;">Approved Intake</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: var(--border-width) solid var(--border);">
+                  <td style="padding: 14px 20px; color: var(--foreground); font-weight: 600;">Computer Science &amp; Engineering</td>
+                  <td style="padding: 14px 20px; text-align: center; color: var(--muted-foreground);">Undergraduate (B.Tech)</td>
+                  <td style="padding: 14px 20px; text-align: center; color: var(--muted-foreground);">4 Years</td>
+                  <td style="padding: 14px 20px; text-align: right; color: var(--accent); font-weight: 700; font-family: 'JetBrains Mono', monospace;">120</td>
+                </tr>
+                <tr style="border-bottom: var(--border-width) solid var(--border);">
+                  <td style="padding: 14px 20px; color: var(--foreground); font-weight: 600;">Artificial Intelligence &amp; Data Science</td>
+                  <td style="padding: 14px 20px; text-align: center; color: var(--muted-foreground);">Undergraduate (B.Tech)</td>
+                  <td style="padding: 14px 20px; text-align: center; color: var(--muted-foreground);">4 Years</td>
+                  <td style="padding: 14px 20px; text-align: right; color: var(--accent); font-weight: 700; font-family: 'JetBrains Mono', monospace;">60</td>
+                </tr>
+                <tr style="border-bottom: var(--border-width) solid var(--border);">
+                  <td style="padding: 14px 20px; color: var(--foreground); font-weight: 600;">Civil Engineering</td>
+                  <td style="padding: 14px 20px; text-align: center; color: var(--muted-foreground);">Undergraduate (B.Tech)</td>
+                  <td style="padding: 14px 20px; text-align: center; color: var(--muted-foreground);">4 Years</td>
+                  <td style="padding: 14px 20px; text-align: right; color: var(--accent); font-weight: 700; font-family: 'JetBrains Mono', monospace;">60</td>
+                </tr>
+                <tr style="border-bottom: var(--border-width) solid var(--border);">
+                  <td style="padding: 14px 20px; color: var(--foreground); font-weight: 600;">Mechanical Engineering</td>
+                  <td style="padding: 14px 20px; text-align: center; color: var(--muted-foreground);">Undergraduate (B.Tech)</td>
+                  <td style="padding: 14px 20px; text-align: center; color: var(--muted-foreground);">4 Years</td>
+                  <td style="padding: 14px 20px; text-align: right; color: var(--accent); font-weight: 700; font-family: 'JetBrains Mono', monospace;">60</td>
+                </tr>
+                <tr style="border-bottom: var(--border-width) solid var(--border);">
+                  <td style="padding: 14px 20px; color: var(--foreground); font-weight: 600;">Electrical Engineering (Electronics &amp; Power)</td>
+                  <td style="padding: 14px 20px; text-align: center; color: var(--muted-foreground);">Undergraduate (B.Tech)</td>
+                  <td style="padding: 14px 20px; text-align: center; color: var(--muted-foreground);">4 Years</td>
+                  <td style="padding: 14px 20px; text-align: right; color: var(--accent); font-weight: 700; font-family: 'JetBrains Mono', monospace;">60</td>
+                </tr>
+                <tr>
+                  <td style="padding: 14px 20px; color: var(--foreground); font-weight: 600;">Postgraduate (M.Tech) &amp; Ph.D. Research Centers</td>
+                  <td style="padding: 14px 20px; text-align: center; color: var(--muted-foreground);">PG &amp; Doctorate</td>
+                  <td style="padding: 14px 20px; text-align: center; color: var(--muted-foreground);">2 to 5 Years</td>
+                  <td style="padding: 14px 20px; text-align: right; color: var(--accent); font-weight: 700; font-family: 'JetBrains Mono', monospace;">As per DTE / SGBAU</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- CAMPUS INFRASTRUCTURE & FACILITIES -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="landing-section" id="facilities">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title"><i data-lucide="building-2" class="icon-amber mr-8"></i> Campus Infrastructure &amp; Amenities</h2>
+          <p class="section-subtitle">Spread across a lush green 30-acre campus designed for learning, research, and holistic student life</p>
+        </div>
+
+        <div class="features-grid" style="grid-template-columns: repeat(3, 1fr);">
+          
+          <!-- Library -->
+          <div class="card header-glow-card">
+            <div class="card-body">
+              <div style="width: 48px; height: 48px; border-radius: 50%; background: rgba(255,122,26,0.1); border: var(--border-width) solid var(--accent); display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
+                <i data-lucide="library" style="width: 22px; height: 22px; color: var(--accent);"></i>
+              </div>
+              <h3 class="card-title text-uppercase mb-12" style="font-size: var(--font-sm);">Central Digital Library</h3>
+              <p class="card-desc" style="font-size: var(--font-xs); line-height: 1.7;">
+                Houses over <strong>60,000+ volumes</strong>, rare technical manuscripts, DELNET subscriptions, and access to premier international journals including IEEE Xplore, ASME, ASCE, Springer, and ScienceDirect, plus reading halls with 300+ seating.
+              </p>
+            </div>
+          </div>
+
+          <!-- Computing Labs -->
+          <div class="card header-glow-card">
+            <div class="card-body">
+              <div style="width: 48px; height: 48px; border-radius: 50%; background: rgba(255,122,26,0.1); border: var(--border-width) solid var(--accent); display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
+                <i data-lucide="monitor" style="width: 22px; height: 22px; color: var(--accent);"></i>
+              </div>
+              <h3 class="card-title text-uppercase mb-12" style="font-size: var(--font-sm);">High-Performance Computing</h3>
+              <p class="card-desc" style="font-size: var(--font-xs); line-height: 1.7;">
+                Over <strong>1,000+ computer workstations</strong> connected to a 1 Gbps high-speed optical fiber network, dedicated GPU computation servers for AI/ML tasks, and round-the-clock Wi-Fi across the entire academic complex.
+              </p>
+            </div>
+          </div>
+
+          <!-- Hostels -->
+          <div class="card header-glow-card">
+            <div class="card-body">
+              <div style="width: 48px; height: 48px; border-radius: 50%; background: rgba(255,122,26,0.1); border: var(--border-width) solid var(--accent); display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
+                <i data-lucide="home" style="width: 22px; height: 22px; color: var(--accent);"></i>
+              </div>
+              <h3 class="card-title text-uppercase mb-12" style="font-size: var(--font-sm);">Residential Hostels</h3>
+              <p class="card-desc" style="font-size: var(--font-xs); line-height: 1.7;">
+                Separate on-campus hostels for boys and girls with furnished rooms, 24/7 security &amp; CCTV surveillance, hygienic mess serving nutritious food, solar water heating, study rooms, and recreational lounges.
+              </p>
+            </div>
+          </div>
+
+          <!-- Sports Complex -->
+          <div class="card header-glow-card">
+            <div class="card-body">
+              <div style="width: 48px; height: 48px; border-radius: 50%; background: rgba(255,122,26,0.1); border: var(--border-width) solid var(--accent); display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
+                <i data-lucide="trophy" style="width: 22px; height: 22px; color: var(--accent);"></i>
+              </div>
+              <h3 class="card-title text-uppercase mb-12" style="font-size: var(--font-sm);">Sports &amp; Fitness Arena</h3>
+              <p class="card-desc" style="font-size: var(--font-xs); line-height: 1.7;">
+                Spacious athletic grounds featuring full-size cricket and football pitches, basketball and volleyball courts, indoor badminton courts, table tennis, and a modern equipped multi-gym for student physical fitness.
+              </p>
+            </div>
+          </div>
+
+          <!-- Auditoriums -->
+          <div class="card header-glow-card">
+            <div class="card-body">
+              <div style="width: 48px; height: 48px; border-radius: 50%; background: rgba(255,122,26,0.1); border: var(--border-width) solid var(--accent); display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
+                <i data-lucide="presentation" style="width: 22px; height: 22px; color: var(--accent);"></i>
+              </div>
+              <h3 class="card-title text-uppercase mb-12" style="font-size: var(--font-sm);">Auditoriums &amp; Seminar Halls</h3>
+              <p class="card-desc" style="font-size: var(--font-xs); line-height: 1.7;">
+                Centrally air-conditioned 500+ capacity main auditorium along with multiple smart A/V seminar halls for hosting national hackathons, international conferences, expert guest lectures, and cultural events.
+              </p>
+            </div>
+          </div>
+
+          <!-- Innovation & Incubation -->
+          <div class="card header-glow-card">
+            <div class="card-body">
+              <div style="width: 48px; height: 48px; border-radius: 50%; background: rgba(255,122,26,0.1); border: var(--border-width) solid var(--accent); display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
+                <i data-lucide="lightbulb" style="width: 22px; height: 22px; color: var(--accent);"></i>
+              </div>
+              <h3 class="card-title text-uppercase mb-12" style="font-size: var(--font-sm);">IIC &amp; Startup Incubation</h3>
+              <p class="card-desc" style="font-size: var(--font-xs); line-height: 1.7;">
+                Ministry of Education's Institution's Innovation Council (IIC), dedicated startup incubator, patent facilitation cell, and active student chapters including CSI, IEEE, ISTE, and ACM.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- TRAINING, PLACEMENTS & RECRUITERS -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="landing-section">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title"><i data-lucide="briefcase" class="icon-amber mr-8"></i> Training &amp; Placements</h2>
+          <p class="section-subtitle">Empowering students for industry leadership with leading global recruiters</p>
+        </div>
+
+        <div class="card header-glow-card mb-32">
+          <div class="card-body" style="padding: 32px;">
+            <div class="grid-asymmetric" style="align-items: center;">
+              <div>
+                <h3 class="card-title text-uppercase mb-12" style="font-size: var(--font-lg);">Career Launchpad &amp; Skill Development</h3>
+                <p class="card-desc" style="font-size: var(--font-sm); line-height: 1.75; margin-bottom: 16px;">
+                  The Training &amp; Placement (T&amp;P) Cell at BNCOE Pusad operates as a dynamic bridge between students and top technology enterprises. We provide comprehensive training in data structures, algorithms, cloud technologies, soft skills, mock technical interviews, and corporate aptitude tests starting right from early semesters.
+                </p>
+                <p class="card-desc" style="font-size: var(--font-sm); line-height: 1.75; margin-bottom: 0;">
+                  Our alumni work across leading technology hubs worldwide — including Silicon Valley, Seattle, London, Singapore, Bangalore, Pune, and Hyderabad.
+                </p>
+              </div>
+              <div style="background: var(--muted); border: var(--border-width) solid var(--border); padding: 24px; text-align: center;">
+                <div style="font-size: var(--font-3xl); font-weight: 800; color: var(--accent); font-family: 'Inter Tight', sans-serif;">85%+</div>
+                <div style="font-size: var(--font-xs); text-transform: uppercase; letter-spacing: var(--track-wider); color: var(--foreground); margin-top: 4px; font-weight: 700;">Placement Record</div>
+                <p style="font-size: var(--font-xs); color: var(--muted-foreground); margin-top: 12px; line-height: 1.6; margin-bottom: 0;">
+                  Consistent recruitment by Fortune 500 tech companies &amp; leading product startups.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recruiter Marquee / Grid -->
+        <div style="border: var(--border-width) solid var(--border); background: var(--card); padding: 28px 24px; text-align: center;">
+          <div style="font-size: var(--font-xs); text-transform: uppercase; letter-spacing: var(--track-widest); color: var(--muted-foreground); font-weight: 700; margin-bottom: 20px;">
+            Key Recruiting &amp; Industry Partners
+          </div>
+          <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px;">
+            <span style="padding: 8px 16px; background: var(--muted); border: var(--border-width) solid var(--border); font-family: 'Inter Tight', sans-serif; font-size: var(--font-sm); font-weight: 700; color: var(--foreground);">TCS</span>
+            <span style="padding: 8px 16px; background: var(--muted); border: var(--border-width) solid var(--border); font-family: 'Inter Tight', sans-serif; font-size: var(--font-sm); font-weight: 700; color: var(--foreground);">Infosys</span>
+            <span style="padding: 8px 16px; background: var(--muted); border: var(--border-width) solid var(--border); font-family: 'Inter Tight', sans-serif; font-size: var(--font-sm); font-weight: 700; color: var(--foreground);">Wipro</span>
+            <span style="padding: 8px 16px; background: var(--muted); border: var(--border-width) solid var(--border); font-family: 'Inter Tight', sans-serif; font-size: var(--font-sm); font-weight: 700; color: var(--foreground);">Cognizant</span>
+            <span style="padding: 8px 16px; background: var(--muted); border: var(--border-width) solid var(--border); font-family: 'Inter Tight', sans-serif; font-size: var(--font-sm); font-weight: 700; color: var(--foreground);">Capgemini</span>
+            <span style="padding: 8px 16px; background: var(--muted); border: var(--border-width) solid var(--border); font-family: 'Inter Tight', sans-serif; font-size: var(--font-sm); font-weight: 700; color: var(--foreground);">L&amp;T Infotech</span>
+            <span style="padding: 8px 16px; background: var(--muted); border: var(--border-width) solid var(--border); font-family: 'Inter Tight', sans-serif; font-size: var(--font-sm); font-weight: 700; color: var(--foreground);">Persistent Systems</span>
+            <span style="padding: 8px 16px; background: var(--muted); border: var(--border-width) solid var(--border); font-family: 'Inter Tight', sans-serif; font-size: var(--font-sm); font-weight: 700; color: var(--foreground);">Tech Mahindra</span>
+            <span style="padding: 8px 16px; background: var(--muted); border: var(--border-width) solid var(--border); font-family: 'Inter Tight', sans-serif; font-size: var(--font-sm); font-weight: 700; color: var(--foreground);">Hexaware</span>
+            <span style="padding: 8px 16px; background: var(--muted); border: var(--border-width) solid var(--border); font-family: 'Inter Tight', sans-serif; font-size: var(--font-sm); font-weight: 700; color: var(--foreground);">KPIT</span>
+            <span style="padding: 8px 16px; background: var(--muted); border: var(--border-width) solid var(--border); font-family: 'Inter Tight', sans-serif; font-size: var(--font-sm); font-weight: 700; color: var(--foreground);">Amazon</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- LOCATION & MAP -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="landing-section" id="location">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title"><i data-lucide="map-pin" class="icon-amber mr-8"></i> Campus Location &amp; How to Reach</h2>
+          <p class="section-subtitle">Located in the picturesque educational town of Pusad in Yavatmal District, Maharashtra</p>
+        </div>
+
+        <div class="features-grid" style="grid-template-columns: 1fr 1fr; margin-bottom: 24px;">
+          <div class="card header-glow-card">
+            <div class="card-body">
+              <h3 class="card-title text-uppercase mb-12" style="font-size: var(--font-sm);"><i data-lucide="navigation" class="icon-amber"></i> Campus Address</h3>
+              <p class="card-desc" style="margin-bottom: 16px; font-size: var(--font-sm); line-height: 1.75;">
+                Janata Shikshan Prasarak Mandal's<br>
+                <strong>Babasaheb Naik College of Engineering</strong><br>
+                Kakaddat Road, Pusad – 445 215<br>
+                Dist. Yavatmal, Maharashtra, India
+              </p>
+              <div style="font-size: var(--font-xs); color: var(--muted-foreground);">
+                <strong>Official Portal:</strong> <a href="http://www.bncoepusad.ac.in" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">www.bncoepusad.ac.in</a><br>
+                <strong>Event Desk:</strong> <a href="mailto:codeforge2k26@gmail.com" style="color: var(--accent);">codeforge2k26@gmail.com</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card header-glow-card">
+            <div class="card-body">
+              <h3 class="card-title text-uppercase mb-12" style="font-size: var(--font-sm);"><i data-lucide="train" class="icon-amber"></i> Travel Connectivity</h3>
+              <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; font-size: var(--font-xs); color: var(--muted-foreground);">
+                <li>• <strong>Nearest Railway Stations:</strong> Nanded (110 km), Akola (150 km), Hingoli (65 km), Wardha (160 km)</li>
+                <li>• <strong>Nearest Airports:</strong> Nanded Airport, Dr. Babasaheb Ambedkar International Airport Nagpur (240 km)</li>
+                <li>• <strong>Roadways:</strong> Well-connected by MSRTC buses and national/state highways connecting Nagpur, Pune, Mumbai, and Hyderabad.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div style="border-radius: var(--radius); overflow: hidden; border: var(--border-width) solid var(--border); height: 360px;">
+          <iframe
+            src="https://maps.google.com/maps?q=Babasaheb+Naik+College+of+Engineering+Pusad+Yavatmal&output=embed"
+            width="100%" height="100%"
+            style="border:0; filter: invert(0.9) hue-rotate(180deg) saturate(0.3) brightness(0.7);"
+            allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- CTA: JOIN CODEFORGE AT BNCOE -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <section class="landing-section" style="border-bottom: var(--border-width) solid var(--border);">
+      <div class="section-container">
+        <div style="text-align: center; padding: 48px 32px; border: var(--border-width) solid var(--accent); border-radius: var(--radius); background: rgba(255,122,26,0.04);">
+          <p style="font-size: var(--font-xs); text-transform: uppercase; letter-spacing: var(--track-widest); color: var(--accent); font-weight: 700; margin-bottom: 8px;">Code Today. Forge Tomorrow.</p>
+          <h3 style="font-size: clamp(1.6rem, 3.5vw, 2.2rem); font-weight: 800; text-transform: uppercase; margin-bottom: 12px; letter-spacing: var(--track-wide);">
+            Join CodeForge'26 at BNCOE Pusad
+          </h3>
+          <p class="card-desc" style="margin-bottom: 24px; max-width: 580px; margin-left: auto; margin-right: auto; font-size: var(--font-sm);">
+            Be part of Vidarbha's largest one-day engineering hackathon hosted on <strong>3rd September 2026</strong>. Cash prizes of ₹22,000+, certificates, trophies, and startup incubation opportunities await.
+          </p>
+          <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+            <a href="https://forms.gle/UWaU6SCXJ2oNew6v6" target="_blank" rel="noopener" class="btn btn-primary" style="padding: 12px 32px; font-weight: 600;">
+              Register Your Team <i data-lucide="arrow-right" class="w-14"></i> <span class="btn-underline"></span>
+            </a>
+            <a href="about.html" class="btn btn-secondary" style="padding: 12px 28px; font-weight: 600;">
+              Hackathon Details <span class="btn-underline"></span>
+            </a>
+            <a href="contact.html" class="btn btn-ghost" style="padding: 12px 28px; font-weight: 600; border: var(--border-width) solid var(--border);">
+              Contact Coordinators <span class="btn-underline"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- FOOTER -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-container">
+        <div class="footer-col-masthead">
+          <h3 class="footer-masthead-title">CodeForge</h3>
+          <p class="footer-masthead-sub">Baba Saheb Naik College of Engineering</p>
+          <p class="footer-masthead-loc">Pusad, Yavatmal</p>
+          <p class="footer-about-text mt-16">A one-day flagship hackathon by the Department of Computer Science &amp; Engineering, BNCOE Pusad.</p>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Event</a></li>
+            <li><a href="college.html">About College</a></li>
+            <li><a href="sponsors.html">Sponsors</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-title">Important Links</h4>
+          <ul class="footer-links">
+            <li><a href="https://forms.gle/UWaU6SCXJ2oNew6v6" target="_blank" rel="noopener">Register Now</a></li>
+            <li><a href="college.html">College &amp; Institute Info</a></li>
+            <li><a href="about.html">About CodeForge</a></li>
+            <li><a href="img/CodeForge26_STUDENT HANDBOOK.pdf.pdf" target="_blank" rel="noopener">Student Handbook &amp; Rulebook</a></li>
+            <li><a href="contact.html">Contact Organizers</a></li>
+          </ul>
+        </div>
+        <div class="footer-col-organizers">
+          <h4 class="footer-col-title">Event Organizers</h4>
+          <ul class="footer-organizer-list" id="footer-organizers-list"></ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-container bottom-container">
+        <span class="footer-copyright">&copy; 2026 Baba Saheb Naik College of Engineering, Pusad. All Rights Reserved.</span>
+        <span class="footer-signature font-mono">POWERED BY CODEFORGE SYSTEM &amp; SARTHAK UBALE</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/db.js"></script>
+</body>
+</html>

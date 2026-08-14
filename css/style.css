@@ -362,6 +362,7 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 20px;
   position: relative;
   min-height: 56px;
 }
@@ -441,13 +442,10 @@ a:hover {
 }
 
 .header-center {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
   justify-content: center;
+  flex: 1;
   z-index: 1;
 }
 
@@ -2661,6 +2659,122 @@ input:checked + .slider:before {
   .admin-stats-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  /* Responsive Clean Header */
+  .header-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 16px;
+    gap: 8px 0;
+    min-height: auto;
+    width: 100%;
+  }
+
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: calc(100% - 170px);
+  }
+
+  .institute-logo-placeholder {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+  }
+
+  .header-logo-anvil {
+    width: 18px;
+    height: 18px;
+  }
+
+  .header-branding {
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .header-branding .logo-wordmark {
+    font-size: 1.1rem;
+    white-space: nowrap;
+  }
+
+  .header-branding .institute-name {
+    font-size: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    max-width: 100%;
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    margin-left: auto;
+  }
+
+  .header #theme-toggle-btn,
+  .header .header-social-btn {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+  }
+
+  .header .btn-primary.btn-sm,
+  .header .header-right .btn {
+    padding: 6px 10px !important;
+    font-size: 11px !important;
+    gap: 4px !important;
+    white-space: nowrap;
+  }
+
+  .header-center {
+    position: static;
+    transform: none;
+    flex: 0 0 100%;
+    order: 3;
+    width: 100%;
+    margin-top: 6px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    overflow-x: auto;
+    justify-content: flex-start;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .header-center::-webkit-scrollbar {
+    display: none;
+  }
+
+  .header-nav {
+    width: max-content;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+    padding: 2px 4px;
+  }
+
+  .header-nav .nav-link {
+    flex: 0 0 auto;
+    text-align: center;
+    padding: 6px 12px;
+    font-size: 11px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
 }
 
 @media (max-width: 768px) {
@@ -2765,110 +2879,7 @@ input:checked + .slider:before {
     text-align: center;
   }
   
-  .header-container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    padding: 8px 12px;
-    gap: 8px 0;
-    min-height: auto;
-    width: 100%;
-  }
 
-  .header-left {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex: 1 1 auto;
-    min-width: 0;
-    max-width: calc(100% - 170px);
-  }
-
-  .institute-logo-placeholder {
-    width: 32px;
-    height: 32px;
-    flex-shrink: 0;
-  }
-
-  .header-logo-anvil {
-    width: 18px;
-    height: 18px;
-  }
-
-  .header-branding {
-    min-width: 0;
-    overflow: hidden;
-  }
-
-  .header-branding .logo-wordmark {
-    font-size: 1.1rem;
-    white-space: nowrap;
-  }
-
-  .header-branding .institute-name {
-    font-size: 8px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: block;
-    max-width: 100%;
-  }
-
-  .header-right {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    flex-shrink: 0;
-    margin-left: auto;
-  }
-
-  .header #theme-toggle-btn,
-  .header .header-social-btn {
-    width: 32px;
-    height: 32px;
-    padding: 0;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 6px;
-  }
-
-  .header .btn-primary.btn-sm,
-  .header .header-right .btn {
-    padding: 6px 10px !important;
-    font-size: 11px !important;
-    gap: 4px !important;
-    white-space: nowrap;
-  }
-
-  .header-center {
-    position: static;
-    transform: none;
-    flex: 0 0 100%;
-    order: 3;
-    width: 100%;
-    margin-top: 4px;
-    padding-top: 6px;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-  }
-
-  .header-nav {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 4px;
-  }
-
-  .header-nav .nav-link {
-    flex: 1 1 0;
-    text-align: center;
-    padding: 6px 4px;
-    font-size: 11px;
-    border-radius: 4px;
-    white-space: nowrap;
-  }
 
   .features-grid[style*="grid-template-columns"],
   .features-grid {
@@ -3148,5 +3159,51 @@ input:checked + .slider:before {
   align-items: center;
   gap: 8px;
 }
+
+/* --- PREMIUM PAGE HERO TYPOGRAPHY SYSTEM --- */
+.page-hero-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-family: 'Inter Tight', sans-serif;
+  font-weight: 900;
+  font-size: clamp(2rem, 5.5vw, 4.2rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  margin-bottom: 24px;
+  color: #FAFAFA;
+}
+
+.page-hero-title-line {
+  display: block;
+}
+
+.page-hero-title-accent {
+  color: var(--accent);
+  font-style: italic;
+  background: linear-gradient(90deg, #FF7A1A, #FF4500);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 40px rgba(255, 122, 26, 0.12);
+  transition: text-shadow var(--transition-speed) var(--transition-bezier);
+}
+
+.page-hero-title:hover .page-hero-title-accent {
+  text-shadow: 0 0 50px rgba(255, 122, 26, 0.25);
+}
+
+/* Custom Text Selection Highlight */
+::selection {
+  background: rgba(255, 122, 26, 0.25);
+  color: #FAFAFA;
+}
+
+::-moz-selection {
+  background: rgba(255, 122, 26, 0.25);
+  color: #FAFAFA;
+}
+
 
 

@@ -42,8 +42,11 @@
     <div class="container">
       <section id="view-register" class="app-view active">
         <!-- Progress Stepper Tracker Header -->
-        <div class="stepper-header-row mb-32">
-          <h2 class="dashboard-title text-uppercase tracking-tighter">Team Builder</h2>
+        <div class="stepper-header-row mb-32" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+          <h2 class="page-hero-title" style="margin-bottom: 0; align-items: flex-start; text-align: left; font-size: clamp(1.8rem, 4vw, 2.5rem);">
+            <span class="page-hero-title-line">Team</span>
+            <span class="page-hero-title-line page-hero-title-accent">Builder</span>
+          </h2>
           
           <div class="stepper-tracker">
             <div class="step" id="step-node-1">
@@ -87,7 +90,7 @@
                   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; font-size: 12px;">
                     <div style="background: var(--card); padding: 10px 12px; border-radius: 6px; border: 1px solid var(--border);">
                       <span style="color: var(--muted-foreground); display: block; font-size: 10px; font-weight: 600; text-transform: uppercase;">Team Size</span>
-                      <strong style="color: var(--foreground); font-size: 13px;">Exactly 4 Members</strong>
+                      <strong style="color: var(--foreground); font-size: 13px;">1 to 4 Members (MAX 4)</strong>
                     </div>
                     <div style="background: var(--card); padding: 10px 12px; border-radius: 6px; border: 1px solid var(--border);">
                       <span style="color: var(--muted-foreground); display: block; font-size: 10px; font-weight: 600; text-transform: uppercase;">Registration Fee</span>

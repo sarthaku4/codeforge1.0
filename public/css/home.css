@@ -87,6 +87,45 @@
   text-transform: uppercase;
 }
 
+.cf-hero-college {
+  font-family: 'Inter Tight', sans-serif;
+  font-size: clamp(0.9rem, 2vw, 1.15rem);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--foreground);
+  margin-top: 0;
+  margin-bottom: 36px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 24px;
+  background: rgba(255, 122, 26, 0.03);
+  border: 1px solid rgba(255, 122, 26, 0.15);
+  border-radius: 4px;
+  transition: all var(--transition-speed) var(--transition-bezier);
+}
+
+.cf-hero-college:hover {
+  color: var(--accent);
+  background: rgba(255, 122, 26, 0.08);
+  border-color: rgba(255, 122, 26, 0.4);
+  box-shadow: 0 4px 20px rgba(255, 122, 26, 0.1);
+  transform: translateY(-2px);
+}
+
+.cf-hero-college i {
+  width: 16px;
+  height: 16px;
+  color: var(--accent);
+  transition: transform var(--transition-speed) var(--transition-bezier);
+}
+
+.cf-hero-college:hover i {
+  transform: scale(1.1);
+}
+
 .cf-badge-dot {
   width: 7px;
   height: 7px;
@@ -120,6 +159,12 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  text-shadow: 0 0 45px rgba(255, 122, 26, 0.15);
+  transition: text-shadow var(--transition-speed) var(--transition-bezier);
+}
+
+.cf-hero-title:hover .cf-hero-title-accent {
+  text-shadow: 0 0 60px rgba(255, 122, 26, 0.35);
 }
 
 .cf-hero-sub {
@@ -742,6 +787,13 @@
     padding: 6px 14px;
     margin-bottom: 24px;
     font-size: 9px;
+  }
+  .cf-hero-college {
+    margin-top: 0;
+    margin-bottom: 24px;
+    padding: 8px 18px;
+    letter-spacing: 0.12em;
+    font-size: clamp(0.75rem, 2.5vw, 0.95rem);
   }
   .cf-hero-title {
     font-size: clamp(2.2rem, 8.5vw, 4rem);
