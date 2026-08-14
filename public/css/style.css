@@ -3212,5 +3212,31 @@ input:checked + .slider:before {
   color: #FAFAFA;
 }
 
+/* College Page Hero Grid Layout */
+.college-hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 48px;
+  align-items: center;
+}
+
+@media (max-width: 991px) {
+  .college-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  .college-hero-grid .hero-content {
+    text-align: center !important;
+  }
+  .college-hero-grid .hero-content h2,
+  .college-hero-grid .hero-content p,
+  .college-hero-grid .hero-content div {
+    text-align: center !important;
+    justify-content: center !important;
+  }
+}
+
+
 
 

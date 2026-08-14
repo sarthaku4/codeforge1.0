@@ -69,33 +69,44 @@
     <!-- ═══════════════════════════════════════════════ -->
     <section class="landing-section" style="padding-top: 80px; padding-bottom: 48px; border-top: none;">
       <div class="section-container">
-        <div class="section-header" style="margin-bottom: 32px;">
-          <p style="font-size: var(--font-xs); text-transform: uppercase; letter-spacing: var(--track-widest); color: var(--accent); font-weight: 700; margin-bottom: 12px;">
-            <i data-lucide="award" style="width: 14px; height: 14px; display: inline-block; vertical-align: middle; margin-right: 4px;"></i>
-            ESTD. 1983 · 40+ YEARS OF TECHNICAL EXCELLENCE · NAAC &amp; NBA ACCREDITED
-          </p>
-          <h2 class="page-hero-title" style="max-width: 860px; margin: 0 auto 24px;">
-            <span class="page-hero-title-line">Babasaheb Naik</span>
-            <span class="page-hero-title-line page-hero-title-accent" style="font-style: normal;">College of Engineering</span>
-          </h2>
-          <p style="font-family: 'Inter Tight', sans-serif; font-size: var(--font-lg); color: var(--foreground); font-weight: 600; margin-top: 8px;">
-            Janata Shikshan Prasarak Mandal, Pusad — 445 215, Dist. Yavatmal (M.S.)
-          </p>
-          <p class="section-subtitle" style="margin-top: 16px; max-width: 720px;">
-            A premier self-financed engineering institution in Maharashtra, dedicated to fostering innovation, academic rigor, cutting-edge research, and rural technological empowerment.
-          </p>
-          <div style="display: flex; gap: 14px; justify-content: center; margin-top: 28px; flex-wrap: wrap;">
-            <a href="#departments" class="btn btn-primary">
-              <span>Academic Departments</span> <i data-lucide="arrow-down" class="w-14"></i>
-              <span class="btn-underline"></span>
-            </a>
-            <a href="#facilities" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 8px;">
-              <i data-lucide="building" class="w-14"></i> <span>Campus Facilities</span>
-            </a>
-            <a href="about.html" class="btn btn-ghost" style="display: inline-flex; align-items: center; gap: 8px; border: var(--border-width) solid var(--border);">
-              <i data-lucide="zap" class="w-14" style="color: var(--accent);"></i> <span>CodeForge'26 Hackathon</span>
-            </a>
+        <div class="college-hero-grid">
+          
+          <!-- Hero Text Content -->
+          <div class="hero-content" style="text-align: left; display: flex; flex-direction: column; align-items: flex-start;">
+            <p style="font-size: var(--font-xs); text-transform: uppercase; letter-spacing: var(--track-widest); color: var(--accent); font-weight: 700; margin-bottom: 12px; text-align: left;">
+              <i data-lucide="award" style="width: 14px; height: 14px; display: inline-block; vertical-align: middle; margin-right: 4px;"></i>
+              ESTD. 1983 · 40+ YEARS OF TECHNICAL EXCELLENCE · NAAC &amp; NBA ACCREDITED
+            </p>
+            <h2 class="page-hero-title" style="margin: 0 0 24px; text-align: left;">
+              <span class="page-hero-title-line" style="display: block;">Babasaheb Naik</span>
+              <span class="page-hero-title-line page-hero-title-accent" style="font-style: normal; display: block;">College of Engineering</span>
+            </h2>
+            <p style="font-family: 'Inter Tight', sans-serif; font-size: var(--font-lg); color: var(--foreground); font-weight: 600; margin-top: 8px; text-align: left;">
+              Janata Shikshan Prasarak Mandal, Pusad — 445 215, Dist. Yavatmal (M.S.)
+            </p>
+            <p class="section-subtitle" style="margin-top: 16px; margin-bottom: 0; max-width: 720px; text-align: left;">
+              A premier self-financed engineering institution in Maharashtra, dedicated to fostering innovation, academic rigor, cutting-edge research, and rural technological empowerment.
+            </p>
+            <div style="display: flex; gap: 14px; justify-content: flex-start; margin-top: 28px; flex-wrap: wrap; width: 100%;">
+              <a href="#departments" class="btn btn-primary">
+                <span>Academic Departments</span> <i data-lucide="arrow-down" class="w-14"></i>
+                <span class="btn-underline"></span>
+              </a>
+              <a href="#facilities" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 8px;">
+                <i data-lucide="building" class="w-14"></i> <span>Campus Facilities</span>
+              </a>
+              <a href="about.html" class="btn btn-ghost" style="display: inline-flex; align-items: center; gap: 8px; border: var(--border-width) solid var(--border);">
+                <i data-lucide="zap" class="w-14" style="color: var(--accent);"></i> <span>CodeForge'26 Hackathon</span>
+              </a>
+            </div>
           </div>
+
+          <!-- Hero Image Content -->
+          <div class="hero-image-wrapper" style="position: relative; width: 100%; border-radius: var(--radius); overflow: hidden; border: var(--border-width) solid var(--border); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35); aspect-ratio: 16/10; background: var(--card);">
+            <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0) 60%, rgba(10,10,10,0.8) 100%); z-index: 1; pointer-events: none;"></div>
+            <img src="img/college_hero.jpg" alt="Babasaheb Naik College of Engineering Campus Building" style="width: 100%; height: 100%; object-fit: cover; display: block; transform: scale(1.02); transition: transform 0.5s ease;" onload="this.style.transform='scale(1)'">
+          </div>
+
         </div>
       </div>
     </section>
