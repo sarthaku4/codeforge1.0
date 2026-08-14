@@ -398,16 +398,16 @@ a:hover {
   width: 24px;
   height: 24px;
   object-fit: contain;
-  filter: invert(53%) sepia(91%) saturate(2225%) hue-rotate(345deg) brightness(101%) contrast(101%);
-  transition: filter var(--transition-speed);
+  border-radius: 50%;
+  transition: opacity var(--transition-speed);
 }
 
 .header .header-logo-anvil {
-  filter: brightness(0) invert(1);
+  /* keep original colors */
 }
 
 .header .header-logo-anvil:hover {
-  filter: invert(53%) sepia(91%) saturate(2225%) hue-rotate(345deg) brightness(101%) contrast(101%);
+  opacity: 0.8;
 }
 
 .header-branding {
