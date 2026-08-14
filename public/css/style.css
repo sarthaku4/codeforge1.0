@@ -3185,6 +3185,8 @@ input:checked + .slider:before {
   display: inline-block;
   padding-bottom: 0.15em;
   margin-bottom: -0.15em;
+  padding-right: 0.15em;
+  margin-right: -0.15em;
   color: var(--accent);
   font-style: italic;
   background: linear-gradient(90deg, #FF7A1A, #FF4500);
