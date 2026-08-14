@@ -3215,9 +3215,40 @@ input:checked + .slider:before {
 /* College Page Hero Grid Layout */
 .college-hero-grid {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
+  grid-template-columns: 1.1fr 0.9fr;
   gap: 48px;
   align-items: center;
+}
+
+.college-hero-image-card {
+  position: relative;
+  width: 100%;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: var(--border-width) solid var(--border);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  aspect-ratio: 2/1;
+  background: var(--card);
+  transition: border-color var(--transition-speed), box-shadow var(--transition-speed), transform var(--transition-speed);
+}
+
+.college-hero-image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hover Effects */
+.college-hero-image-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 25px 50px rgba(255, 122, 26, 0.2), 0 0 30px rgba(255, 122, 26, 0.12);
+  transform: translateY(-6px);
+}
+
+.college-hero-image-card:hover img {
+  transform: scale(1.06);
 }
 
 @media (max-width: 991px) {
@@ -3228,6 +3259,7 @@ input:checked + .slider:before {
   }
   .college-hero-grid .hero-content {
     text-align: center !important;
+    align-items: center !important;
   }
   .college-hero-grid .hero-content h2,
   .college-hero-grid .hero-content p,
@@ -3236,6 +3268,7 @@ input:checked + .slider:before {
     justify-content: center !important;
   }
 }
+
 
 
 
